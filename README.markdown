@@ -16,7 +16,7 @@ Highrise is a gem that provides an easy way to use the Highrise API.
     
     require 'rubygens'
     require 'highrise'
-    Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
+    Highrise::Base.site = "http://your_api:login@your_site.highrisehq.com/"
     
 ## Usage
 
@@ -42,8 +42,13 @@ Comments are welcome. Send your feedback through [this page][co]
 
 ## Shameless advertisement
 
-This plugin is brought to you by Improve It.
+This plugin is brought to you by [Improve It][ii].
+
+[![Improve It][logo]][ii]
+
+[logo]: 	http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
 
 [mt]:		http://www.improveit.com.br/en/company/tapajos
+[ii]:		http://www.improveit.com.br/en
 [co]:		http://www.improveit.com.br/en/contact
 [mit]:	http://www.opensource.org/licenses/mit-license.php
