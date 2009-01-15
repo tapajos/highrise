@@ -8,7 +8,7 @@ require "fileutils"
 require "rubygems"
 require "rake/gempackagetask"
 
-VERSION = "0.5"
+VERSION = "0.6"
 
 highrise_gemspec = Gem::Specification.new do |s|
   s.name             = "highrise"
