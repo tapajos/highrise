@@ -2,7 +2,7 @@
 
 ## What
 
-Highrise is a gem that provides an easy way to use the Highrise API.
+[Highrise][h] is a gem that provides an easy way to use the [Highrise][h] API.
 
 ## Installing
 
@@ -16,11 +16,11 @@ Highrise is a gem that provides an easy way to use the Highrise API.
     
     require 'rubygens'
     require 'highrise'
-    Highrise::Base.site = "http://your_api:login@your_site.highrisehq.com/"
+    Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
     
 ## Usage
 
-This gem provides a set of classes to access all available informations on Highrise. 
+This gem provides a set of classes to access all available informations on [Highrise][h]. 
 
 These are the list of classes:
 
@@ -46,9 +46,9 @@ This plugin is brought to you by [Improve It][ii].
 
 [![Improve It][logo]][ii]
 
-[logo]: 	http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
-
-[mt]:		http://www.improveit.com.br/en/company/tapajos
-[ii]:		http://www.improveit.com.br/en
-[co]:		http://www.improveit.com.br/en/contact
-[mit]:	http://www.opensource.org/licenses/mit-license.php
+[logo]:http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
+[mt]:http://www.improveit.com.br/en/company/tapajos
+[ii]:http://www.improveit.com.br/en
+[co]:http://www.improveit.com.br/en/contact
+[mit]:http://www.opensource.org/licenses/mit-license.php
+[h]: http://www.highrisehq.com/
