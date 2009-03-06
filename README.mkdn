@@ -14,7 +14,7 @@
 
 ## Configure your key.
     
-    require 'rubygens'
+    require 'rubygems'
     require 'highrise'
     Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
     
