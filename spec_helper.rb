@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/init'
+require File.dirname(__FILE__) + '/lib/highrise'
 
 def turn_methods_public(classe, method_name = nil)
   if method_name
