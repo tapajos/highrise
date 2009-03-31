@@ -4,6 +4,9 @@ describe Highrise::Person do
 
   before(:each) do
     @person = Highrise::Person.new
+    @tag = Highrise::Tag.new
+    @tag.attributes["id"] = 1
+    @tag.attributes["name"] = "forum_user"
   end
   
   it "should be instance of Highrise::Subject" do
@@ -43,6 +46,24 @@ describe Highrise::Person do
       @person.name.should == "Marcos Tapajós"
     end
 
+  end
+  
+  describe ".tags" do
+    
+    it "should return an array of all tags for that user." do
+      Highrise::Tag.should_receive(:find).at_least(2).times.and_return([@tag])
+      @person.tags.should == ["forum_user"]
+    end
+    
+  end
+  
+  describe "tag!(tag_name)" do
+  
+    it "should create a tag for this user." do
+      @person.should_receive(:post).with(:tags, :name => "Forum_User" ).at_least(1).times.and_return(true)
+      @person.tag!("Forum_User").should be_true
+    end
+    
   end
   
 end
