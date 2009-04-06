@@ -1,7 +1,8 @@
 module Highrise
   class Person < Subject
     include Pagination
-  
+    include Taggable
+    
     def self.find_all_across_pages_since(time)
       find_all_across_pages(:params => { :since => time.to_s(:db).gsub(/[^\d]/, '') })
     end
@@ -28,13 +29,6 @@ module Highrise
       end
       usertags
     end
-
-    def tag!(tag_name)
-      # thanks for the user Inka, http://forum.37signals.com/highrise/forums/15/topics/1312?page=2
-      self.post(:tags, :name => tag_name) unless tag_name.blank?
-      true
-    end
-  
   end
 
 end

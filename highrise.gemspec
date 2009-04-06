@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{highrise}
-  s.version = "0.6.1"
+  s.version = "0.6.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = %q{Find awesome stuff}
   s.email = %q{tapajos@improveit.com.br}
   s.extra_rdoc_files = ["README.mkdn"]
-  s.files = ["README.mkdn", "Rakefile", "lib/highrise", "lib/highrise/base.rb", "lib/highrise/comment.rb", "lib/highrise/company.rb", "lib/highrise/email.rb", "lib/highrise/group.rb", "lib/highrise/kase.rb", "lib/highrise/membership.rb", "lib/highrise/note.rb", "lib/highrise/pagination.rb", "lib/highrise/person.rb", "lib/highrise/subject.rb", "lib/highrise/task.rb", "lib/highrise/user.rb", "lib/highrise/tag.rb", "lib/highrise.rb", "spec/highrise", "spec/highrise/base_spec.rb", "spec/highrise/comment_spec.rb", "spec/highrise/company_spec.rb", "spec/highrise/email_spec.rb", "spec/highrise/group_spec.rb", "spec/highrise/kase_spec.rb", "spec/highrise/membership_spec.rb", "spec/highrise/note_spec.rb", "spec/highrise/pagination_spec.rb", "spec/highrise/person_spec.rb", "spec/highrise/subject_spec.rb", "spec/highrise/task_spec.rb", "spec/highrise/user_spec.rb"]
+  s.files = ["README.mkdn", "Rakefile", "lib/highrise", "lib/highrise/base.rb", "lib/highrise/comment.rb", "lib/highrise/company.rb", "lib/highrise/email.rb", "lib/highrise/group.rb", "lib/highrise/kase.rb", "lib/highrise/membership.rb", "lib/highrise/note.rb", "lib/highrise/pagination.rb", "lib/highrise/person.rb", "lib/highrise/subject.rb", "lib/highrise/task.rb", "lib/highrise/user.rb", "lib/highrise/tag.rb", "lib/highrise/taggable.rb", "lib/highrise.rb", "spec/highrise", "spec/highrise/base_spec.rb", "spec/highrise/comment_spec.rb", "spec/highrise/company_spec.rb", "spec/highrise/email_spec.rb", "spec/highrise/group_spec.rb", "spec/highrise/kase_spec.rb", "spec/highrise/membership_spec.rb", "spec/highrise/note_spec.rb", "spec/highrise/pagination_spec.rb", "spec/highrise/person_spec.rb", "spec/highrise/subject_spec.rb", "spec/highrise/task_spec.rb", "spec/highrise/user_spec.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://www.improveit.com.br/en/company/tapajos}
   s.require_paths = ["lib"]
