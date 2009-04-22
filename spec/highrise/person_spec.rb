@@ -4,9 +4,8 @@ describe Highrise::Person do
 
   before(:each) do
     @person = Highrise::Person.new
-    @tag = Highrise::Tag.new
-    @tag.attributes["id"] = 1
-    @tag.attributes["name"] = "forum_user"
+    @tags = [Highrise::Tag.new("414578","cliente")]
+    @tags << Highrise::Tag.new("414587","walk")
   end
   
   it "should be instance of Highrise::Subject" do
@@ -51,8 +50,9 @@ describe Highrise::Person do
   describe ".tags" do
     
     it "should return an array of all tags for that user." do
-      Highrise::Tag.should_receive(:find).at_least(2).times.and_return([@tag])
-      @person.tags.should == ["forum_user"]
+      file_path = File.dirname(__FILE__) + "/people/16887003.html"
+      @person.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @person.tags.should == @tags
     end
     
   end
@@ -62,6 +62,17 @@ describe Highrise::Person do
     it "should create a tag for this user." do
       @person.should_receive(:post).with(:tags, :name => "Forum_User" ).at_least(1).times.and_return(true)
       @person.tag!("Forum_User").should be_true
+    end
+    
+  end
+  
+  describe "untag!(tag_name)" do
+  
+    it "should delete a tag for this user." do
+      file_path = File.dirname(__FILE__) + "/people/16887003.html"
+      @person.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @person.should_receive(:delete).with("tags/414578").at_least(1).times.and_return(true)
+      @person.untag!("cliente").should be_true
     end
     
   end
