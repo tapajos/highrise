@@ -4,6 +4,9 @@ describe Highrise::Company do
 
   before(:each) do
     @company = Highrise::Company.new
+    @tags = [Highrise::Tag.new("414578","cliente")]
+    @tags << Highrise::Tag.new("414580","ged")
+    @tags << Highrise::Tag.new("414579","iepc")
   end
   
   it "should be instance of Highrise::Base" do
@@ -28,6 +31,36 @@ describe Highrise::Company do
       @company.people.should == "people"
     end
 
+  end
+  
+  describe ".tags" do
+    
+    it "should return an array of all tags for that company." do
+      file_path = File.dirname(__FILE__) + "/companies/16883216.html"
+      @company.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @company.tags.should == @tags
+    end
+    
+  end
+  
+  describe "tag!(tag_name)" do
+  
+    it "should create a tag for this company." do
+      @company.should_receive(:post).with(:tags, :name => "client" ).at_least(1).times.and_return(true)
+      @company.tag!("client").should be_true
+    end
+    
+  end
+  
+  describe "untag!(tag_name)" do
+  
+    it "should delete a tag for this company." do
+      file_path = File.dirname(__FILE__) + "/companies/16883216.html"
+      @company.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @company.should_receive(:delete).with("tags/414578").at_least(1).times.and_return(true)
+      @company.untag!("cliente").should be_true
+    end
+    
   end
 
 
