@@ -14,7 +14,7 @@ describe Highrise::Company do
     
     it "should delegate to find_all_across_pages with correct params" do
       time = Time.parse("Wed Jan 14 15:43:11 -0200 2009")
-      Highrise::Company.should_receive(:find_all_across_pages).with({:params=>{:since=>"20090114154311"}}).and_return("result")
+      Highrise::Company.should_receive(:find_all_across_pages).with({:params=>{:since=>"20090114174311"}}).and_return("result")
       Highrise::Company.find_all_across_pages_since(time).should == "result"
     end
 
