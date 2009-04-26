@@ -8,7 +8,9 @@ require "fileutils"
 require "rubygems"
 require "rake/gempackagetask"
 
-VERSION = "0.6.3"
+require File.join(File.dirname(__FILE__), 'lib', 'highrise', 'version')
+
+VERSION=Highrise::VERSION::STRING
 
 highrise_gemspec = Gem::Specification.new do |s|
   s.name             = "highrise"
