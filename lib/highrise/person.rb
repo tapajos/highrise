@@ -12,7 +12,7 @@ module Highrise
     end
   
     def name
-      "#{first_name} #{last_name}".strip
+      "#{first_name rescue ''} #{last_name rescue ''}".strip
     end
     
   end
