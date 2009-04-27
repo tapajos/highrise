@@ -13,19 +13,29 @@ require File.join(File.dirname(__FILE__), 'lib', 'highrise', 'version')
 VERSION=Highrise::VERSION::STRING
 
 highrise_gemspec = Gem::Specification.new do |s|
-  s.name             = "highrise"
+  s.name             = "kmayer-highrise"
   s.version          = VERSION
   s.platform         = Gem::Platform::RUBY
   s.has_rdoc         = true
   s.extra_rdoc_files = ["README.mkdn"]
-  s.summary          = "Find awesome stuff"
-  s.description      = s.summary
-  s.authors          = ["Marcos Tapajós"]
-  s.email            = "tapajos@improveit.com.br"
-  s.homepage         = "http://www.improveit.com.br/en/company/tapajos"
+  s.summary          = "Ruby wrapper around Highrise API"
+  s.description      = %{
+                        Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
+                        gem is a cleaned up, tested version of the same. Contributors have added support for tags 
+                        which are not supported by the API directly
+                        
+                        Configure by adding the following:
+                        
+                        require 'rubygems'
+                        require 'highrise'
+                        Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
+                        }
+  s.authors          = ["Marcos Tapajós", "Ken Mayer"]
+  s.email            = "kmayer@bitwrangler.com"
+  s.homepage         = "http://github.com/kmayer/highrise"
   s.require_path     = "lib"
   s.autorequire      = "highrise"
-  s.files            = %w(README.mkdn Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
+  s.files            = %w(README.mkdn Rakefile MIT-LICENSE spec.opts spec_helper.rb) + Dir.glob("{bin,lib,spec}/**/*")
 end
 
 Rake::GemPackageTask.new(highrise_gemspec) do |pkg|

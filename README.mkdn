@@ -6,11 +6,14 @@
 
 ## Installing
 
-    gem install tapajos-highrise
+    gem install kmayer-highrise
 
 ## Dependencies
 
-* ActiveResorce
+* ActiveResorce >= 2.2.2
+* ActiveSupport >= 2.1
+* Curb
+* Hpricot
 
 ## Configure your key.
     
@@ -24,7 +27,7 @@ This gem provides a set of classes to access all available informations on [High
 
 These are the list of classes:
 
-    Comment, Company, Email, Group, Note, Membership, Person, Subject, Task and User. 
+    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task and User. 
 
 All these classes are inherited of ActiveResouce::Base. For more informations see the ActiveResouce documentation.
 
@@ -38,7 +41,14 @@ Comments are welcome. Send your feedback through [this page][co]
 
 ## Authors
 
-[Marcos Tapajós][mt]  
+[Marcos Tapajós][mt]
+
+## Contributors
+
+[Nicolas Bianco][nb]
+[Luis Gustavo][lg]
+[Thiago Lelis][tl]
+[Ken Mayer][km]
 
 ## Shameless advertisement
 
@@ -52,3 +62,7 @@ This plugin is brought to you by [Improve It][ii].
 [co]:http://www.improveit.com.br/en/contact
 [mit]:http://www.opensource.org/licenses/mit-license.php
 [h]: http://www.highrisehq.com/
+[km]: http://github.com/kmayer
+[lg]: http://github.com/luisbebop
+[nb]: http://github.com/slainer86
+[tl]: http://github.com/ThiagoLelis
