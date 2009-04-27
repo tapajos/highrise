@@ -2,7 +2,7 @@
 
 ## What
 
-[Highrise][h] is a gem that provides an easy way to use the [Highrise][h] API.
+[Highrise][h] is a gem that provides an easy way to use the [Highrise API][api].
 
 ## Installing
 
@@ -23,7 +23,7 @@
     
 ## Usage
 
-This gem provides a set of classes to access all available informations on [Highrise][h]. 
+This gem provides a set of classes to access all available informations on [Highrise][h].
 
 These are the list of classes:
 
@@ -66,3 +66,4 @@ Comments are welcome. Send your feedback through [this page][co]
 [lg]: http://github.com/luisbebop
 [nb]: http://github.com/slainer86
 [tl]: http://github.com/ThiagoLelis
+[api]: http://developer.37signals.com/highrise
