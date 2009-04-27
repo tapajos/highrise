@@ -15,7 +15,7 @@ module Highrise
     def tags      
       tags = []
       get_document.search("#show_tags a").each{ |a|
-       tags << Highrise::Tag.new(a['href'].gsub(/.*\//, ''), a.inner_html) if a['class'] == "grey tag"
+       tags << Highrise::Tag.new(:id => a['href'].gsub(/.*\//, ''), :name => a.inner_html) if a['class'] == "grey tag"
       }
       tags
     end

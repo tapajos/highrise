@@ -3,10 +3,13 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 describe Highrise::Company do
 
   before(:each) do
+    Highrise::Base.site = 'http://example.com.i:3000'
     @company = Highrise::Company.new
-    @tags = [Highrise::Tag.new("414578","cliente")]
-    @tags << Highrise::Tag.new("414580","ged")
-    @tags << Highrise::Tag.new("414579","iepc")
+    returning @tags = [] do 
+      @tags << Highrise::Tag.new(:id => "414578", :name => "cliente")
+      @tags << Highrise::Tag.new(:id => "414580", :name => "ged")
+      @tags << Highrise::Tag.new(:id => "414579", :name => "iepc")
+    end
   end
   
   it "should be instance of Highrise::Base" do
