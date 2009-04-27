@@ -45,23 +45,23 @@ Comments are welcome. Send your feedback through [this page][co]
 
 ## Contributors
 
-[Nicolas Bianco][nb]
-[Luis Gustavo][lg]
-[Thiago Lelis][tl]
-[Ken Mayer][km]
+* [Nicolas Bianco][nb]
+* [Luis Gustavo][lg]
+* [Thiago Lelis][tl]
+* [Ken Mayer][km]
 
 ## Shameless advertisement
 
-This plugin is brought to you by [Improve It][ii].
+(From the original author) This plugin is brought to you by [Improve It][ii].
 
 [![Improve It][logo]][ii]
 
 [logo]:http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
-[mt]:http://www.improveit.com.br/en/company/tapajos
-[ii]:http://www.improveit.com.br/en
-[co]:http://www.improveit.com.br/en/contact
+[mt]: http://www.improveit.com.br/en/company/tapajos
+[ii]: http://www.improveit.com.br/en
+[co]: http://github.com/kmayer
 [mit]:http://www.opensource.org/licenses/mit-license.php
-[h]: http://www.highrisehq.com/
+[h]:  http://www.highrisehq.com/
 [km]: http://github.com/kmayer
 [lg]: http://github.com/luisbebop
 [nb]: http://github.com/slainer86
