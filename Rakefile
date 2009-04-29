@@ -13,7 +13,7 @@ require File.join(File.dirname(__FILE__), 'lib', 'highrise', 'version')
 VERSION=Highrise::VERSION::STRING
 
 highrise_gemspec = Gem::Specification.new do |s|
-  s.name             = "kmayer-highrise"
+  s.name             = "highrise"
   s.version          = VERSION
   s.platform         = Gem::Platform::RUBY
   s.has_rdoc         = true

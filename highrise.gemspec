@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{kmayer-highrise}
+  s.name = %q{highrise}
   s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s", "Ken Mayer"]
   s.autorequire = %q{highrise}
-  s.date = %q{2009-04-27}
+  s.date = %q{2009-04-28}
   s.description = %q{
                         Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
                         gem is a cleaned up, tested version of the same. Contributors have added support for tags 
