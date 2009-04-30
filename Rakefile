@@ -10,52 +10,29 @@ require "rake/gempackagetask"
 
 require File.join(File.dirname(__FILE__), 'lib', 'highrise', 'version')
 
-VERSION=Highrise::VERSION::STRING
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "highrise"
+    gemspec.summary = "Ruby wrapper around Highrise API"
+    gemspec.email = "kmayer@bitwrangler.com"
+    gemspec.homepage = "http://github.com/kmayer/highrise"
+    gemspec.description = %{
+Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
+gem is a cleaned up, tested version of the same. Contributors have added support for tags 
+which are not supported by the API directly
 
-highrise_gemspec = Gem::Specification.new do |s|
-  s.name             = "highrise"
-  s.version          = VERSION
-  s.platform         = Gem::Platform::RUBY
-  s.has_rdoc         = true
-  s.extra_rdoc_files = ["README.mkdn"]
-  s.summary          = "Ruby wrapper around Highrise API"
-  s.description      = %{
-                        Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
-                        gem is a cleaned up, tested version of the same. Contributors have added support for tags 
-                        which are not supported by the API directly
-                        
-                        Configure by adding the following:
-                        
-                        require 'rubygems'
-                        require 'highrise'
-                        Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
-                        }
-  s.authors          = ["Marcos Tapajós", "Ken Mayer"]
-  s.email            = "kmayer@bitwrangler.com"
-  s.homepage         = "http://github.com/kmayer/highrise"
-  s.require_path     = "lib"
-  s.autorequire      = "highrise"
-  s.files            = %w(README.mkdn Rakefile MIT-LICENSE spec.opts spec_helper.rb) + Dir.glob("{bin,lib,spec}/**/*")
-end
+Configure by adding the following:
 
-Rake::GemPackageTask.new(highrise_gemspec) do |pkg|
-  pkg.gem_spec = highrise_gemspec
-end
-
-namespace :gem do
-  namespace :spec do
-    desc "Update highrise.gemspec"
-    task :generate do
-      File.open("highrise.gemspec", "w") do |f|
-        f.puts(highrise_gemspec.to_ruby)
-      end
-    end
+require 'highrise'
+Highrise::Base.site = 'http://your_site.highrisehq.com/'
+Highrise::Base.user = 'your_api_auth_token'q
+                          }
+    gemspec.authors = ["Marcos Tapajós", "Ken Mayer"]
+    gemspec.add_dependency('activeresource', '>=2.2.2')
   end
-end
-
-desc "Instal gem"
-task :install => :package do
-  sh %{sudo gem install --local pkg/highrise-#{VERSION}}
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install jeweler -s http://gems.github.com"
 end
 
 desc 'Default: run unit tests.'
