@@ -96,11 +96,11 @@ Highrise::Base.user = 'your_api_auth_token'q
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activeresource>, [">= 2.2.2"])
+      s.add_runtime_dependency(%q<activeresource>, [">= 2.2"])
     else
-      s.add_dependency(%q<activeresource>, [">= 2.2.2"])
+      s.add_dependency(%q<activeresource>, [">= 2.2"])
     end
   else
-    s.add_dependency(%q<activeresource>, [">= 2.2.2"])
+    s.add_dependency(%q<activeresource>, [">= 2.2"])
   end
 end
