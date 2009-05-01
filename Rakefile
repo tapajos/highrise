@@ -30,6 +30,7 @@ Highrise::Base.user = 'your_api_auth_token'q
                           }
     gemspec.authors = ["Marcos Tapajós", "Ken Mayer"]
     gemspec.add_dependency('activeresource', '>=2.2')
+    gemspec.add_dependency('activesupport', '>=2.1')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install jeweler -s http://gems.github.com"
