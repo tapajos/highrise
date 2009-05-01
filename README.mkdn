@@ -6,7 +6,7 @@
 
 ## Installing
 
-    gem install kmayer-highrise
+    gem install tapajos-highrise
 
 ## Dependencies
 
@@ -52,7 +52,7 @@ Comments are welcome. Send your feedback through [this page][co]
 
 ## Shameless advertisement
 
-(From the original author) This plugin is brought to you by [Improve It][ii].
+This plugin is brought to you by [Improve It][ii].
 
 [![Improve It][logo]][ii]
 
