@@ -27,6 +27,7 @@ Configure by adding the following:
 require 'highrise'
 Highrise::Base.site = 'http://your_site.highrisehq.com/'
 Highrise::Base.user = 'your_api_auth_token'q
+Highrise::Base.connection.cache_store = :memory_store # for caching
                           }
     gemspec.authors = ["Marcos Tapajós", "Ken Mayer"]
     gemspec.add_dependency('activeresource', '>=2.2')
