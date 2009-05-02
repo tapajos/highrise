@@ -1,11 +1,6 @@
-require 'rubygems'
 require 'active_resource'
-require 'uri'
-require 'curb'
-gem 'activesupport', '>= 2.1'
+require 'activesupport'
 require 'active_support/basic_object'
-require 'hpricot'
-require 'iconv'
 
 require File.dirname(__FILE__) + '/highrise/base'
 require File.dirname(__FILE__) + '/highrise/version'

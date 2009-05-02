@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{highrise}
-  s.version = "0.7.1"
+  s.version = "0.8.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s", "Ken Mayer"]
-  s.date = %q{2009-04-30}
+  s.date = %q{2009-05-01}
   s.description = %q{
 Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
 gem is a cleaned up, tested version of the same. Contributors have added support for tags 
@@ -26,6 +26,9 @@ Highrise::Base.user = 'your_api_auth_token'q
     "README.mkdn",
     "Rakefile",
     "VERSION.yml",
+    "examples/extending.rb",
+    "examples/sample.rb",
+    "lib/cachable.rb",
     "lib/highrise.rb",
     "lib/highrise/base.rb",
     "lib/highrise/comment.rb",
@@ -46,6 +49,7 @@ Highrise::Base.user = 'your_api_auth_token'q
     "lib/highrise/user.rb",
     "lib/highrise/version.rb",
     "spec/highrise/base_spec.rb",
+    "spec/highrise/cachable_spec.rb",
     "spec/highrise/comment_spec.rb",
     "spec/highrise/companies/16883216.html",
     "spec/highrise/company_spec.rb",
@@ -63,7 +67,9 @@ Highrise::Base.user = 'your_api_auth_token'q
     "spec/highrise/tag_spec.rb",
     "spec/highrise/task_spec.rb",
     "spec/highrise/user_spec.rb",
-    "spec/highrise/version_spec.rb"
+    "spec/highrise/version_spec.rb",
+    "spec/spec.opts",
+    "spec/spec_helper.rb"
   ]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/kmayer/highrise}
@@ -73,6 +79,7 @@ Highrise::Base.user = 'your_api_auth_token'q
   s.summary = %q{Ruby wrapper around Highrise API}
   s.test_files = [
     "spec/highrise/base_spec.rb",
+    "spec/highrise/cachable_spec.rb",
     "spec/highrise/comment_spec.rb",
     "spec/highrise/company_spec.rb",
     "spec/highrise/curlhelper_spec.rb",
@@ -88,7 +95,10 @@ Highrise::Base.user = 'your_api_auth_token'q
     "spec/highrise/tag_spec.rb",
     "spec/highrise/task_spec.rb",
     "spec/highrise/user_spec.rb",
-    "spec/highrise/version_spec.rb"
+    "spec/highrise/version_spec.rb",
+    "spec/spec_helper.rb",
+    "examples/extending.rb",
+    "examples/sample.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -97,10 +107,19 @@ Highrise::Base.user = 'your_api_auth_token'q
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activeresource>, [">= 2.2"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 2.1"])
+      s.add_runtime_dependency(%q<curb>, [">= 0"])
+      s.add_runtime_dependency(%q<hpricot>, [">= 0"])
     else
       s.add_dependency(%q<activeresource>, [">= 2.2"])
+      s.add_dependency(%q<activesupport>, [">= 2.1"])
+      s.add_dependency(%q<curb>, [">= 0"])
+      s.add_dependency(%q<hpricot>, [">= 0"])
     end
   else
     s.add_dependency(%q<activeresource>, [">= 2.2"])
+    s.add_dependency(%q<activesupport>, [">= 2.1"])
+    s.add_dependency(%q<curb>, [">= 0"])
+    s.add_dependency(%q<hpricot>, [">= 0"])
   end
 end

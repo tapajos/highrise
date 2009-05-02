@@ -31,6 +31,8 @@ Highrise::Base.user = 'your_api_auth_token'q
     gemspec.authors = ["Marcos Tapajós", "Ken Mayer"]
     gemspec.add_dependency('activeresource', '>=2.2')
     gemspec.add_dependency('activesupport', '>=2.1')
+    gemspec.add_dependency('curb')
+    gemspec.add_dependency('hpricot')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install jeweler -s http://gems.github.com"
@@ -42,5 +44,5 @@ task :default => :spec
 desc "Run all specs"
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*_spec.rb']
-  t.spec_opts = ['--options', 'spec.opts']
+  t.spec_opts = ['--options', 'spec/spec.opts']
 end

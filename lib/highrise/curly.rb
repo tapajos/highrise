@@ -1,3 +1,8 @@
+require 'hpricot'
+require 'iconv'
+require 'curb'
+require 'uri'
+
 class Curly < ActiveSupport::BasicObject
   attr_reader :uri
   
