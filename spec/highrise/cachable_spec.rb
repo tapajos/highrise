@@ -30,13 +30,13 @@ describe Highrise::Base do
   end
   
   after(:all) do
-    @connection.cache_store = nil
+    @connection.cache_store = :none
   end
   
   before(:each) do
     @thing = Highrise::Base.new
     @key = :key
-    @connection.should_receive(:cache_key).and_return(@key)
+    @connection.stub!(:cache_key).and_return(@key)
   end
   
   context "when a cached response is available" do
@@ -50,7 +50,7 @@ describe Highrise::Base do
     end
     
     it "should read from the cache" do
-      Highrise::Base.find(2).should == @thing
+      Highrise::Base.find(1).should == @thing
     end
   end
   
@@ -61,12 +61,12 @@ describe Highrise::Base do
     
     it "SHOULD perform an ARes request" do
       @connection.should_receive(:get_without_cache).and_return(@thing.attributes)
-      Highrise::Base.find(3)
+      Highrise::Base.find(1)
     end
     
     it "should cache the response using the caching key" do
       @connection.should_receive(:get_without_cache).and_return(@thing.attributes)
-      Highrise::Base.find(4)
+      Highrise::Base.find(1)
       @connection.cache_store.read(@key).should == @thing.attributes
     end
   end

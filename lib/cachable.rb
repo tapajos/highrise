@@ -23,9 +23,9 @@ require 'digest/sha1'
 # Configuration examples ('off' is the default):
 #
 #   CachedResource.connection.cache_store = :memory_store
-#   CachedResource.connection.cache_store = :file_store, "/path/to/cache/directory"
-#   CachedResource.connection.cache_store = :drb_store, "druby://localhost:9192"
-#   CachedResource.connection.cache_store = :mem_cache_store, "localhost"
+#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :file_store, "/path/to/cache/directory"
+#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :drb_store, "druby://localhost:9192"
+#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost"
 #   CachedResource.connection.cache_store = MyOwnStore.new("parameter")
 #
 # Note: To ensure that caching is turned off, set CachedResource.connection.cache_store = :none
@@ -44,15 +44,15 @@ module Cachable
     # Wrapper for lookup_store, with a couple of special options:
     #   Passing +:none+ will turn off caching
     #   Passing +:rails+ will use the default Rails/AS cache (whatever it happens to be)
-    #   Passing no args or nil will return the default cache from AS
-    def cache_store=(*store_option)
+    #   Passing +nil+ will use the default cache from AS
+    def cache_store=(store_option)
       @cache_store = case store_option
-      when [:none]
+      when :none
         nil
-      when [:rails]
+      when :rails
         Rails.cache rescue ActiveSupport::Cache.lookup_store
       else
-        ActiveSupport::Cache.lookup_store(*store_option)
+        ActiveSupport::Cache.lookup_store(store_option)
       end
     end
 
