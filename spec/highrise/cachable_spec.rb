@@ -12,8 +12,13 @@ describe Highrise::Base, "class configuration" do
   end
   
   it "should tell us if caching is not active" do
-    @connection.cache_store = nil
+    @connection.cache_store = :none
     @connection.is_caching?.should == false
+  end
+
+  it "should use the Rails stack default cache" do
+    @connection.cache_store = :rails
+    @connection.is_caching?.should == true
   end
 end
 

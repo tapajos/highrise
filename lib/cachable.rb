@@ -6,7 +6,7 @@ require 'digest/sha1'
 #
 # == Usage
 # 
-#   require 'lib/cachable'
+#   require 'cachable'
 # 
 #   module CachedResource
 #     class Base < ActiveResource::Base
@@ -16,7 +16,7 @@ require 'digest/sha1'
 #
 # == Caching stores
 #
-# All the caching stores from ActiveSupport::Cache are available to be used
+# All the caching stores from ActiveSupport::Cache are available
 # as backends for caching. See the Rails rdoc for more information on
 # these stores
 #
@@ -28,7 +28,9 @@ require 'digest/sha1'
 #   CachedResource.connection.cache_store = :mem_cache_store, "localhost"
 #   CachedResource.connection.cache_store = MyOwnStore.new("parameter")
 #
-# Note: To ensure that caching is turned off, set CachedResource.connection.cache_store = nil
+# Note: To ensure that caching is turned off, set CachedResource.connection.cache_store = :none
+#
+# FYI: You can use this with *any* active resource interface, not just Highrise.
 
 module Cachable
   def self.included(base)
@@ -39,8 +41,19 @@ module Cachable
       @cache_store ||= nil
     end
 
-    def cache_store=(store_option)
-      @cache_store = store_option.nil? ? nil : ActiveSupport::Cache.lookup_store(store_option)
+    # Wrapper for lookup_store, with a couple of special options:
+    #   Passing +:none+ will turn off caching
+    #   Passing +:rails+ will use the default Rails/AS cache (whatever it happens to be)
+    #   Passing no args or nil will return the default cache from AS
+    def cache_store=(*store_option)
+      @cache_store = case store_option
+      when [:none]
+        nil
+      when [:rails]
+        Rails.cache rescue ActiveSupport::Cache.lookup_store
+      else
+        ActiveSupport::Cache.lookup_store(*store_option)
+      end
     end
 
     def is_caching?

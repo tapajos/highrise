@@ -1,10 +1,8 @@
-# Highrise (0.8.0)
+# Highrise (0.9.0)
 
-## What
+## What is it?
 
-[Highrise][h] is a gem that provides an easy way to use the [Highrise API][api].
-
-This gem provides a set of classes to access available information on [Highrise][h].
+This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]
 
 These are the list of classes:
 
@@ -16,14 +14,14 @@ All these classes are inherited of ActiveResouce::Base. For more informations se
 
     gem install kmayer-highrise
 
-## Dependencies
+### Dependencies
 
 * ActiveResorce >= 2.2.2
 * ActiveSupport >= 2.1
 * Curb
 * Hpricot
 
-## Configure your key.
+### Configure your key
     
     require 'rubygems'
     require 'highrise'
@@ -35,7 +33,7 @@ or
     Highrise::Base.site = 'http://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
 
-and, if you want caching(!)
+and, if you want [caching][c]:
 
     Highrise::Base.connection.cache_store= <your normal ActiveSupport::Caching options>
     
@@ -69,18 +67,19 @@ Comments are welcome. Send your feedback through the [issue tracker on GitHub][i
 [How to Cache Anything With ActiveSupport][rh] on the very *day* I started writing the cache code. Thank you, Rein
 for writing an excellent tutorial and [posting your source][e] on GitHub.
 
+[api]: http://developer.37signals.com/highrise
 [ar]: http://api.rubyonrails.org/classes/ActiveResource/Base.html
-[mt]: http://www.improveit.com.br/en/company/tapajos
-[ii]: http://www.improveit.com.br/en
+[c]:  http://api.rubyonrails.org/classes/ActiveSupport/Cache
 [co]: http://github.com/kmayer
-[mit]:http://www.opensource.org/licenses/mit-license.php
+[e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
 [i]:  http://github.com/kmayer/highrise/issues
+[ii]: http://www.improveit.com.br/en
 [km]: http://github.com/kmayer
 [lg]: http://github.com/luisbebop
+[mit]:http://www.opensource.org/licenses/mit-license.php
+[mt]: http://www.improveit.com.br/en/company/tapajos
 [nb]: http://github.com/slainer86
-[tl]: http://github.com/ThiagoLelis
-[api]: http://developer.37signals.com/highrise
 [re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
 [rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
-[e]:  http://github.com/primedia/endeca/tree/master
+[tl]: http://github.com/ThiagoLelis
