@@ -1,5 +1,3 @@
-require 'digest/sha1'
-
 # Caching is a way to speed up slow ActiveResource queries by keeping the result of
 # an ActiveResource request around to be reused by subequest requests. Caching is
 # turned off by default.
@@ -11,8 +9,11 @@ require 'digest/sha1'
 #   module CachedResource
 #     class Base < ActiveResource::Base
 #     end
-#     include Cachable
+#     class ActiveResource::Connection
+#       include Cachable
+#     end
 #   end
+#
 #
 # == Caching stores
 #
@@ -34,9 +35,13 @@ require 'digest/sha1'
 
 module Cachable
   def self.included(base)
-    ActiveResource::Connection.alias_method_chain :get, :cache
+    base.class_eval do
+      include InstanceMethods
+      alias_method_chain :get, :cache
+    end
   end
-  ActiveResource::Connection.class_eval do
+
+  module InstanceMethods
     def cache_store
       @cache_store ||= nil
     end
@@ -68,7 +73,7 @@ module Cachable
     end
 
     def cache_key(*args)
-      Digest::SHA1.hexdigest args.to_s
+      args.to_s
     end
 
     def fetch(args, &block)
