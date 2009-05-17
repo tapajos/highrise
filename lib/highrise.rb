@@ -3,7 +3,6 @@ require 'activesupport'
 require 'active_support/basic_object'
 
 require File.dirname(__FILE__) + '/highrise/base'
-require File.dirname(__FILE__) + '/highrise/version'
 require File.dirname(__FILE__) + '/highrise/pagination'
 require File.dirname(__FILE__) + '/highrise/curly'
 require File.dirname(__FILE__) + '/highrise/curlhelper'

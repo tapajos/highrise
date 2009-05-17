@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/spec_helper'
 
 describe Highrise::Base, "class configuration" do
   before(:each) do
@@ -7,18 +7,13 @@ describe Highrise::Base, "class configuration" do
   end
     
   it "should tell us if caching is active" do
-    @connection.cache_store = :memory_store
+    @connection.cache_store = ActiveSupport::Cache.lookup_store :memory_store
     @connection.is_caching?.should == true
   end
   
   it "should tell us if caching is not active" do
-    @connection.cache_store = :none
+    @connection.cache_store = nil
     @connection.is_caching?.should == false
-  end
-
-  it "should use the Rails stack default cache" do
-    @connection.cache_store = :rails
-    @connection.is_caching?.should == true
   end
 end
 
@@ -26,7 +21,7 @@ describe Highrise::Base do
   before(:all) do
     Highrise::Base.site = 'http://example.com.i:3000'
     @connection = Highrise::Base.connection
-    @connection.cache_store = :memory_store
+    @connection.cache_store = ActiveSupport::Cache.lookup_store :memory_store
   end
   
   after(:all) do
