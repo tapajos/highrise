@@ -9,9 +9,13 @@ module Highrise
     
     def untag!(tag_name)
       to_delete = self.tags.find{|t| t.name==tag_name} unless tag_name.blank?
-      self.delete("tags/#{to_delete.id}") unless to_delete.nil?
+      self.untag_id!(to_delete.id) unless to_delete.nil?
     end
             
+    def untag_id!(tag_id)
+      self.delete("tags/#{tag_id}")
+    end
+
     def tags      
       tags = []
       get_document.search("#show_tags a").each{ |a|
