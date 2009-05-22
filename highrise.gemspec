@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{highrise}
-  s.version = "0.11.0"
+  s.version = "0.11.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s", "Ken Mayer"]
-  s.date = %q{2009-05-20}
+  s.date = %q{2009-05-22}
   s.description = %q{
 Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
 gem is a cleaned up, tested version of the same. Contributors have added support for tags 
@@ -30,6 +30,7 @@ Highrise::Base.user = 'your_api_auth_token'
      "Rakefile",
      "VERSION.yml",
      "autotest/discover.rb",
+     "examples/config_initializers_highrise.rb",
      "examples/extending.rb",
      "examples/sample.rb",
      "highrise.gemspec",
@@ -100,6 +101,7 @@ Highrise::Base.user = 'your_api_auth_token'
      "spec/highrise/task_spec.rb",
      "spec/highrise/user_spec.rb",
      "spec/spec_helper.rb",
+     "examples/config_initializers_highrise.rb",
      "examples/extending.rb",
      "examples/sample.rb"
   ]
