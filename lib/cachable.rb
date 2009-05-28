@@ -43,14 +43,16 @@ module Cachable
   end
 
   module InstanceMethods
+    attr_writer :cache_store, :store_options
+    
     def cache_store
       @cache_store ||= nil
     end
-
-    def cache_store=(store_option)
-      @cache_store = store_option
+    
+    def store_options
+      @store_options ||= {}
     end
-
+    
     def is_caching?
       !@cache_store.nil?
     end
@@ -67,7 +69,7 @@ module Cachable
     end
 
     def fetch(args, &block)
-      cache_store.fetch(cache_key(args), &block).dup
+      cache_store.fetch(cache_key(args), store_options, &block).dup
     end
   end
 end
