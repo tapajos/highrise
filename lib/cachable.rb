@@ -22,13 +22,15 @@
 # as backends for caching. See the Rails rdoc for more information on
 # these stores
 #
-# Configuration examples ('off' is the default):
-#
+# === Configuration examples ('off' is the default):
 #   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :memory_store
 #   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :file_store, "/path/to/cache/directory"
 #   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :drb_store, "druby://localhost:9192"
 #   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost"
 #   CachedResource.connection.cache_store = MyOwnStore.new("parameter")
+#
+# === If you are using a store that has write options, you can set them
+#   CachedResource.connection.store_options = { :expires_in => 60.seconds }
 #
 # Note: To ensure that caching is turned off, set CachedResource.connection.cache_store = nil
 #
