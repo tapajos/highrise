@@ -2,13 +2,11 @@
 
 ## What is it?
 
-This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]
+This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]:
 
-These are the list of classes:
+    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
 
-    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task and User. 
-
-All these classes are inherited of ActiveResouce::Base. For more informations see the [ActiveResouce][ar] documentation.
+All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveResouce][ar] documentation for more information.
 
 ## Installing
 
