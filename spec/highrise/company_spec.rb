@@ -4,11 +4,11 @@ describe Highrise::Company do
 
   before(:each) do
     Highrise::Base.site = 'http://example.com.i:3000'
-    @company = Highrise::Company.new
+    @company = Highrise::Company.new(:id => 1)
     returning @tags = [] do 
-      @tags << Highrise::Tag.new(:id => "414578", :name => "cliente")
-      @tags << Highrise::Tag.new(:id => "414580", :name => "ged")
-      @tags << Highrise::Tag.new(:id => "414579", :name => "iepc")
+      @tags << {'id' => "414578", 'name' => "cliente"}
+      @tags << {'id' => "414580", 'name' => "ged"}
+      @tags << {'id' => "414579", 'name' => "iepc"}
     end
   end
   
@@ -39,8 +39,7 @@ describe Highrise::Company do
   describe ".tags" do
     
     it "should return an array of all tags for that company." do
-      file_path = File.dirname(__FILE__) + "/companies/16883216.html"
-      @company.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @company.should_receive(:get).with(:tags).and_return(@tags)
       @company.tags.should == @tags
     end
     
@@ -49,7 +48,7 @@ describe Highrise::Company do
   describe "tag!(tag_name)" do
   
     it "should create a tag for this company." do
-      @company.should_receive(:post).with(:tags, :name => "client" ).at_least(1).times.and_return(true)
+      @company.should_receive(:post).with(:tags, :name => "client" ).and_return(true)
       @company.tag!("client").should be_true
     end
     
@@ -58,9 +57,8 @@ describe Highrise::Company do
   describe "untag!(tag_name)" do
   
     it "should delete a tag for this company." do
-      file_path = File.dirname(__FILE__) + "/companies/16883216.html"
-      @company.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
-      @company.should_receive(:delete).with("tags/414578").at_least(1).times.and_return(true)
+      @company.should_receive(:get).with(:tags).and_return(@tags)
+      @company.should_receive(:delete).with("tags/414578").and_return(true)
       @company.untag!("cliente").should be_true
     end
     

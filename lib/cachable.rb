@@ -9,9 +9,7 @@
 # 
 #   module CachedResource
 #     class Base < ActiveResource::Base
-#     end
-#     class ActiveResource::Connection
-#       include Cachable
+#       include ::Cachable
 #     end
 #   end
 #
@@ -23,14 +21,14 @@
 # these stores
 #
 # === Configuration examples ('off' is the default):
-#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :memory_store
-#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :file_store, "/path/to/cache/directory"
-#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :drb_store, "druby://localhost:9192"
-#   CachedResource.connection.cache_store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost"
-#   CachedResource.connection.cache_store = MyOwnStore.new("parameter")
+#   CachedResource.cache_store = ActiveSupport::Cache.lookup_store :memory_store
+#   CachedResource.cache_store = ActiveSupport::Cache.lookup_store :file_store, "/path/to/cache/directory"
+#   CachedResource.cache_store = ActiveSupport::Cache.lookup_store :drb_store, "druby://localhost:9192"
+#   CachedResource.cache_store = ActiveSupport::Cache.lookup_store :mem_cache_store, "localhost"
+#   CachedResource.cache_store = MyOwnStore.new("parameter")
 #
 # === If you are using a store that has write options, you can set them
-#   CachedResource.connection.store_options = { :expires_in => 60.seconds }
+#   CachedResource.store_options = { :expires_in => 60.seconds }
 #
 # Note: To ensure that caching is turned off, set CachedResource.connection.cache_store = nil
 #
@@ -38,13 +36,16 @@
 
 module Cachable
   def self.included(base)
+    base.extend ClassMethods
     base.class_eval do
-      include InstanceMethods
-      alias_method_chain :get, :cache
+      class << self
+        alias_method_chain :find_every, :cache
+        alias_method_chain :find_single, :cache
+      end
     end
   end
 
-  module InstanceMethods
+  module ClassMethods
     attr_writer :cache_store, :store_options
     
     def cache_store
@@ -61,9 +62,19 @@ module Cachable
 
   private
 
-    def get_with_cache(path, headers = {})
-      return get_without_cache(path, headers) unless is_caching?
-      fetch(path) { get_without_cache(path, headers) }
+    # A little hacky -- we need to intercept the finds, but not get too deep inside the connection
+    def find_every_with_cache(options)
+      return find_every_without_cache(options) unless is_caching?
+      prefix_options, query_options = split_options(options[:params])
+      path = collection_path(prefix_options, query_options)
+      fetch(path) { find_every_without_cache(options)}
+    end
+
+    def find_single_with_cache(scope, options)
+      return find_single_without_cache(scope, options) unless is_caching?
+      prefix_options, query_options = split_options(options[:params])
+      path = element_path(scope, prefix_options, query_options)
+      fetch(path) { find_single_without_cache(scope, options)}
     end
 
     def cache_key(*args)

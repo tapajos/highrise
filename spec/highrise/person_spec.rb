@@ -4,10 +4,10 @@ describe Highrise::Person do
 
   before(:each) do
     Highrise::Base.site = 'http://example.com.i:3000'
-    @person = Highrise::Person.new
+    @person = Highrise::Person.new(:id => 1)
     returning @tags = [] do 
-      @tags << Highrise::Tag.new(:id => "414578", :name => "cliente")
-      @tags << Highrise::Tag.new(:id => "414587", :name => "walk")
+      @tags << {'id' => "414578", 'name' => "cliente"}
+      @tags << {'id' => "414587", 'name' => "walk"}
     end
   end
   
@@ -53,8 +53,7 @@ describe Highrise::Person do
   describe ".tags" do
     
     it "should return an array of all tags for that user." do
-      file_path = File.dirname(__FILE__) + "/people/16887003.html"
-      @person.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
+      @person.should_receive(:get).with(:tags).and_return(@tags)
       @person.tags.should == @tags
     end
     
@@ -63,7 +62,7 @@ describe Highrise::Person do
   describe "tag!(tag_name)" do
   
     it "should create a tag for this user." do
-      @person.should_receive(:post).with(:tags, :name => "Forum_User" ).at_least(1).times.and_return(true)
+      @person.should_receive(:post).with(:tags, :name => "Forum_User" ).and_return(true)
       @person.tag!("Forum_User").should be_true
     end
     
@@ -72,9 +71,8 @@ describe Highrise::Person do
   describe "untag!(tag_name)" do
   
     it "should delete a tag for this user." do
-      file_path = File.dirname(__FILE__) + "/people/16887003.html"
-      @person.stub!(:get_document).and_return(Hpricot(File.open(file_path,"r"){|f| f.read}))
-      @person.should_receive(:delete).with("tags/414578").at_least(1).times.and_return(true)
+      @person.should_receive(:get).with(:tags).and_return(@tags)
+      @person.should_receive(:delete).with("tags/414578").and_return(true)
       @person.untag!("cliente").should be_true
     end
     

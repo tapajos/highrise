@@ -1,11 +1,7 @@
 require 'active_resource'
-require 'activesupport'
-require 'active_support/basic_object'
 
 require File.dirname(__FILE__) + '/highrise/base'
 require File.dirname(__FILE__) + '/highrise/pagination'
-require File.dirname(__FILE__) + '/highrise/curly'
-require File.dirname(__FILE__) + '/highrise/curlhelper'
 require File.dirname(__FILE__) + '/highrise/taggable'
 require File.dirname(__FILE__) + '/highrise/subject'
 require File.dirname(__FILE__) + '/highrise/comment'
