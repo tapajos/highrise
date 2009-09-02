@@ -1,4 +1,4 @@
-# Highrise (0.13.0)
+# Highrise (1.0)
 
 ## What is it?
 
@@ -14,10 +14,8 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
 ### Dependencies
 
-* ActiveResorce >= 2.2.2
+* ActiveResorce >= 2.1
 * ActiveSupport >= 2.1
-* Curb
-* Hpricot
 
 ### Configure your key
     
@@ -33,7 +31,7 @@ or
 
 and, if you want [caching][c]:
 
-    Highrise::Base.connection.cache_store= <your normal ActiveSupport::Caching options>
+    Highrise::Base.cache_store= <your normal ActiveSupport::Caching options>
     
 If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
 file is recommended. See config_initializers_highrise.rb in the examples/ directory.
