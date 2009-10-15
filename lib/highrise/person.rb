@@ -15,6 +15,12 @@ module Highrise
       "#{first_name rescue ''} #{last_name rescue ''}".strip
     end
     
+    def address
+      contact_data.addresses.first
+    end
+    
+    def web_address
+      contact_data.web_addresses.first
+    end
   end
-
 end

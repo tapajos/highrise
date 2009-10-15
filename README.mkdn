@@ -1,50 +1,60 @@
-# Highrise
+# Highrise (1.0)
 
-## What
+## What is it?
 
-[Highrise][h] is a gem that provides an easy way to use the [Highrise API][api].
+This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]:
+
+    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
+
+All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveResouce][ar] documentation for more information.
 
 ## Installing
 
     gem install tapajos-highrise
 
-## Dependencies
+### Dependencies
 
-* ActiveResorce >= 2.2.2
+* ActiveResorce >= 2.1
 * ActiveSupport >= 2.1
-* Curb
-* Hpricot
 
-## Configure your key.
+### Configure your key
     
     require 'rubygems'
     require 'highrise'
+    
     Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
     
+or
+
+    Highrise::Base.site = 'http://your_site.highrisehq.com'
+    Highrise::Base.user = 'api-auth-token'
+
+and, if you want [caching][c]:
+
+    Highrise::Base.cache_store= <your normal ActiveSupport::Caching options>
+    
+If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
+file is recommended. See config_initializers_highrise.rb in the examples/ directory.
+
 ## Usage
 
-This gem provides a set of classes to access all available informations on [Highrise][h].
-
-These are the list of classes:
-
-    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task and User. 
-
-All these classes are inherited of ActiveResouce::Base. For more informations see the ActiveResouce documentation.
+    @tags = Highrise::Tag.find(:all)
+    
+    @people = Highrise::Person.find_all_across_pages(:params => {:tag_id => 12345})
+    
+    @person.tag!("VIP")
 
 ## License
 
 This code is free to be used under the terms of the [MIT license][mit].
 
-## Contact
+## Bugs, Issues, Kudos and Catcalls
 
-Comments are welcome. Send your feedback through [this page][co]
-
-## Authors
-
-[Marcos Tapajós][mt]
+Comments are welcome. Send your feedback through the [issue tracker on GitHub][i]
 
 ## Contributors
 
+* [Marcos Tapajós][mt]
 * [Nicolas Bianco][nb]
 * [Luis Gustavo][lg]
 * [Thiago Lelis][tl]
@@ -54,16 +64,25 @@ Comments are welcome. Send your feedback through [this page][co]
 
 This plugin is brought to you by [Improve It][ii].
 
-[![Improve It][logo]][ii]
+## Special Thanks
 
-[logo]:http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
-[mt]: http://www.improveit.com.br/en/company/tapajos
-[ii]: http://www.improveit.com.br/en
+[Rails Envy Podcast Episode #77][re] for mentioning
+[How to Cache Anything With ActiveSupport][rh] on the very *day* I started writing the cache code. Thank you, Rein
+for writing an excellent tutorial and [posting your source][e] on GitHub.
+
+[api]: http://developer.37signals.com/highrise
+[ar]: http://api.rubyonrails.org/classes/ActiveResource/Base.html
+[c]:  http://api.rubyonrails.org/classes/ActiveSupport/Cache
 [co]: http://github.com/kmayer
-[mit]:http://www.opensource.org/licenses/mit-license.php
+[e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
+[i]:  http://github.com/kmayer/highrise/issues
+[ii]: http://www.improveit.com.br/en
 [km]: http://github.com/kmayer
 [lg]: http://github.com/luisbebop
+[mit]:http://www.opensource.org/licenses/mit-license.php
+[mt]: http://www.improveit.com.br/en/company/tapajos
 [nb]: http://github.com/slainer86
+[re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
+[rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
 [tl]: http://github.com/ThiagoLelis
-[api]: http://developer.37signals.com/highrise

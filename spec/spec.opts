@@ -4,4 +4,5 @@ progress
 --loadby
 mtime
 --reverse
---backtrace
+-rubygems
+--debugger

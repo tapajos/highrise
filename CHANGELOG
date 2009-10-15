@@ -1,0 +1,91 @@
+2009-05-27 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.12.0
+
+  * Added store_options attribute, so fetches will work work with
+    :mem_cache_store and :expires_in
+
+2009-05-20 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.11.0
+
+  * Added untag_id! to Taggable, in case you already know the id and don't
+    need to search for it again.
+
+2009-05-16 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.10.0
+
+  * Simplified caching store interface, left configuration up to end-user with
+    less magic
+
+  * Removed version.rb module & tests. No one will ever use it, why clutter up
+    the code.
+
+2009-05-05 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.9.2
+  
+  * Refactored cachable to be more idiomatic ruby
+  
+  * Dropped the SHA1 hashing from cache_key
+
+2009-05-04 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.9.0
+
+  * Changed cache_store= interface to accept :none (to disable caching),
+    :rails (to use the default Rails cache, whatever that happens to be), and,
+    consequently, restores the lookup_store default behavior (given nil or
+    empty options returns a new, default cache_store).
+
+  * Documentation update. Created and back-filled CHANGELOG
+  
+2009-05-01 Ken Mayer <kmayer@bitwrangler.com>
+
+  * Version 0.8.0
+  
+  * Added caching feature
+  
+  * Added example code
+  
+  * Documentation update
+  
+  * Updated gemspec
+  
+2009-04-26 Ken Mayer <kmayer@bitwrangler.com>
+  
+  * Version 0.7.0
+
+  * Refactored Tag & Taggable so ::Tag is a subclass of Base. This adds
+    ::Tag.find(:all) to your quiver of tools. All existing functionality
+    passes tests, but the interface to ::Tag.new has changed. You have to
+    treat it like all of other ARes, that is, use a Hash (instead of
+    positional parameters) to initialize the model.
+
+2009-04-22 Luis Bepop
+
+  * Version 0.6.3
+
+  * Support to tags refactored. Include curl helper to improve support for
+    objects without ActiveResource base like 'tag' which needs a parse in a
+    html document from a httprequest.
+
+2009-04-06 slainer68
+
+  * Version 0.6.2
+  
+  * Modularize Taggable
+  
+2009-03-31 ThiagoLelis
+
+  * Version 0.6.1
+
+  * Add Person.tag that show a array of tags, and Perton.tag(name), add a new
+    tag to a person.
+
+2009-01-14 tapajos
+
+  * Version 0.5.0
+  
+  * Initial import

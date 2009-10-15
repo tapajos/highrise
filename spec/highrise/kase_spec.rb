@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../../spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Highrise::Kase do
 
@@ -12,7 +12,7 @@ describe Highrise::Kase do
   
   describe ".close!" do
 
-    it "should set close date anda save" do
+    it "should set close date and save" do
       time = Time.parse("Wed Jan 14 15:43:11 -0200 2009")
       Time.should_receive(:now).and_return(time)
       @kase.should_receive(:closed_at=).with(time.utc)
