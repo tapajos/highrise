@@ -12,10 +12,11 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
     gem install kmayer-highrise
 
-### Dependencies
+### Dependencies (see the Rakefile or run <code>rake check_dependencies</code>)
 
-* ActiveResorce >= 2.1
-* ActiveSupport >= 2.1
+### Documentation
+
+  I'm on [rdoc.info][rdoc] and here're some [metrics][devver]
 
 ### Configure your key
     
@@ -82,3 +83,5 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
 [rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
 [tl]: http://github.com/ThiagoLelis
+[rdoc]: http://rdoc.info/projects/kmayer/highrise
+[devver]: http://devver.net/caliper/stats?repo=git://github.com/kmayer/highrise

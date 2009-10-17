@@ -7,7 +7,7 @@ module Highrise
       self.post(:tags, :name => tag_name) unless tag_name.blank?
     end    
     def untag!(tag_name)
-      to_delete = self.tags.find{|t| t['name'] == tag_name} unless tag_name.blank?
+      to_delete = self.tags.find{|tag| tag['name'] == tag_name} unless tag_name.blank?
       self.untag_id!(to_delete['id']) unless to_delete.nil?
     end     
     def untag_id!(tag_id)
