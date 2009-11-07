@@ -10,7 +10,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
 ## Installing
 
-    gem install tapajos-highrise
+    gem install highrise
 
 ### Dependencies (see the Rakefile or run <code>rake check_dependencies</code>)
 
