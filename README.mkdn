@@ -84,4 +84,4 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
 [tl]: http://github.com/ThiagoLelis
 [rdoc]: http://rdoc.info/projects/kmayer/highrise
-[devver]: http://devver.net/caliper/stats?repo=git://github.com/kmayer/highrise
+[devver]: https://devver.net/caliper/project?repo=git%3A%2F%2Fgithub.com%2Fkmayer%2Fhighrise.git
