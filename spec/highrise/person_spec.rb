@@ -78,4 +78,17 @@ describe Highrise::Person do
     
   end
   
+  describe ".label" do
+    it "should return 'Party' for label" do
+      @person.label.should == 'Party'
+    end
+  end
+  
+  describe ".add_note" do
+    it "should delegate to Highrise::Note.create with correct params" do
+      Highrise::Note.should_receive(:create).with({:body=>"body", :subject_id=>1, :subject_type=>'Party'}).and_return(mock('note'))
+      @person.add_note :body=>'body'
+    end
+  end
+  
 end

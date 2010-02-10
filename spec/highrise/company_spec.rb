@@ -29,7 +29,6 @@ describe Highrise::Company do
   describe "people" do
 
     it "should delegate to Highrise::Person.find with correct params" do
-      @company.should_receive(:id).and_return(1)
       Highrise::Person.should_receive(:find).with(:all, {:from=>"/companies/1/people.xml"}).and_return("people")
       @company.people.should == "people"
     end
@@ -64,5 +63,17 @@ describe Highrise::Company do
     
   end
 
+  describe ".label" do
+    it "should return 'Party' for label" do
+      @company.label.should == 'Party'
+    end
+  end
+
+  describe ".add_note" do
+    it "should delegate to Highrise::Note.create with correct params" do
+      Highrise::Note.should_receive(:create).with({:body=>"body", :subject_id=>1, :subject_type=>'Party'}).and_return(mock('note'))
+      @company.add_note :body=>'body'
+    end
+  end
 
 end

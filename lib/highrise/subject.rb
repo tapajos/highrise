@@ -6,7 +6,7 @@ module Highrise
 
     def add_note(attrs={})
       attrs[:subject_id] = self.id
-      attrs[:subject_type] = Note::TYPE_MAPPING[self.class.to_s]
+      attrs[:subject_type] = self.label
       Note.create attrs
     end
 
@@ -16,6 +16,10 @@ module Highrise
 
     def upcoming_tasks
       Task.find(:all, :from => "/#{self.class.collection_name}/#{id}/tasks.xml")
+    end
+    
+    def label
+      self.class.to_s.split('::').last
     end
   end
 end

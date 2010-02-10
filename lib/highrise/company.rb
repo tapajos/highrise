@@ -10,5 +10,9 @@ module Highrise
     def people
       Person.find(:all, :from => "/companies/#{id}/people.xml")
     end
+    
+    def label
+      'Party'
+    end
   end
 end

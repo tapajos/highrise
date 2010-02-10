@@ -22,5 +22,9 @@ module Highrise
     def web_address
       contact_data.web_addresses.first
     end
+    
+    def label
+      'Party'
+    end
   end
 end
