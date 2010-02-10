@@ -10,11 +10,16 @@ describe Highrise::User do
     @user.kind_of?(Highrise::Base).should be_true
   end
   
+  it "should delegate to find(:one, :from => '/me.xml') when me is called" do
+    Highrise::User.should_receive(:find).with(:one, {:from => "/me.xml"}).and_return(@user)
+    Highrise::User.me.should == @user
+  end
+  
   def join(group)
     Membership.create(:user_id => id, :group_id => group.id)
   end
   
-  describe ".joind" do
+  describe ".join" do
 
     it "should delegate to Highrise::Membership.create" do
       group_mock = mock("group")
