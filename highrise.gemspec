@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{highrise}
-  s.version = "1.0.3"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s", "Ken Mayer"]
-  s.date = %q{2009-11-11}
+  s.date = %q{2010-02-10}
   s.description = %q{
 Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
 gem is a cleaned up, tested version of the same. Contributors have added support for tags 
@@ -36,12 +36,14 @@ Highrise::Base.user = 'your_api_auth_token'
      "examples/config_initializers_highrise.rb",
      "examples/extending.rb",
      "examples/sample.rb",
+     "highrise.gemspec",
      "install.rb",
      "lib/cachable.rb",
      "lib/highrise.rb",
      "lib/highrise/base.rb",
      "lib/highrise/comment.rb",
      "lib/highrise/company.rb",
+     "lib/highrise/deal.rb",
      "lib/highrise/email.rb",
      "lib/highrise/group.rb",
      "lib/highrise/kase.rb",
@@ -58,6 +60,7 @@ Highrise::Base.user = 'your_api_auth_token'
      "spec/highrise/base_spec.rb",
      "spec/highrise/comment_spec.rb",
      "spec/highrise/company_spec.rb",
+     "spec/highrise/deal_spec.rb",
      "spec/highrise/email_spec.rb",
      "spec/highrise/group_spec.rb",
      "spec/highrise/kase_spec.rb",
@@ -83,6 +86,7 @@ Highrise::Base.user = 'your_api_auth_token'
      "spec/highrise/base_spec.rb",
      "spec/highrise/comment_spec.rb",
      "spec/highrise/company_spec.rb",
+     "spec/highrise/deal_spec.rb",
      "spec/highrise/email_spec.rb",
      "spec/highrise/group_spec.rb",
      "spec/highrise/kase_spec.rb",
