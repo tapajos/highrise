@@ -16,7 +16,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
 ### Documentation
 
-  I'm on [rdoc.info][rdoc] and here're some [metrics][devver]
+  I'm on [rdoc.info][rdoc] and here're some [metrics][caliper]
 
 ### Configure your key
     
@@ -73,11 +73,9 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [api]: http://developer.37signals.com/highrise
 [ar]: http://api.rubyonrails.org/classes/ActiveResource/Base.html
 [c]:  http://api.rubyonrails.org/classes/ActiveSupport/Cache
-[co]: http://github.com/kmayer
 [e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
 [i]:  http://github.com/tapajos/highrise/issues
-[ii]: http://www.improveit.com.br/en
 [km]: http://github.com/kmayer
 [lg]: http://github.com/luisbebop
 [mit]:http://www.opensource.org/licenses/mit-license.php
@@ -86,5 +84,5 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
 [rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
 [tl]: http://github.com/ThiagoLelis
-[rdoc]: http://rdoc.info/projects/kmayer/highrise
-[devver]: https://devver.net/caliper/project?repo=git%3A%2F%2Fgithub.com%2Fkmayer%2Fhighrise.git
+[rdoc]: http://rdoc.info/projects/tapajos/highrise
+[caliper]: https://devver.net/caliper/project?repo=git%3A%2F%2Fgithub.com%2Ftapajos%2Fhighrise.git
