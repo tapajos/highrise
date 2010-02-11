@@ -64,10 +64,6 @@ Comments are welcome. Send your feedback through the [issue tracker on GitHub][i
 * [Luis Gustavo][lg]
 * [Thiago Lelis][tl]
 
-## Shameless advertisement
-
-This plugin is brought to you by [Improve It][ii].
-
 ## Special Thanks
 
 [Rails Envy Podcast Episode #77][re] for mentioning
