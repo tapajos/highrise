@@ -80,7 +80,7 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [co]: http://github.com/kmayer
 [e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
-[i]:  http://github.com/kmayer/highrise/issues
+[i]:  http://github.com/tapajos/highrise/issues
 [ii]: http://www.improveit.com.br/en
 [km]: http://github.com/kmayer
 [lg]: http://github.com/luisbebop
