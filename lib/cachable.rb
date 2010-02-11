@@ -78,7 +78,7 @@ module Cachable
     end
 
     def cache_key(*args)
-      args.to_s
+      args.join('/')
     end
 
     def fetch(args, &block)

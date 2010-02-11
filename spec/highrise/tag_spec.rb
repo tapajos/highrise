@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Highrise::Tag do
-
   before(:each) do
     Highrise::Base.site = 'http://example.com.i/'
     @tag = Highrise::Tag.new(:id => 1, :name => "Name")
