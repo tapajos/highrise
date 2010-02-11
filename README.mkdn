@@ -1,4 +1,4 @@
-# Highrise (1.0)
+# Highrise (1.1.0)
 
 ## What is it?
 
