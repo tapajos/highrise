@@ -19,7 +19,7 @@ module Highrise
     end
     
     def label
-      self.class.to_s.split('::').last
+      self.class.name.split('::').last
     end
   end
 end
