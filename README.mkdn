@@ -1,10 +1,10 @@
-# Highrise (1.1.0)
+# Highrise (1.2.0)
 
 ## What is it?
 
 This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]:
 
-    Comment, Company, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
+    Account, Comment, Company, Deal, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
 
 All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveResouce][ar] documentation for more information.
 
@@ -23,10 +23,6 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
     require 'rubygems'
     require 'highrise'
     
-    Highrise::Base.site = 'http://your_api:login@your_site.highrisehq.com/'
-    
-or
-
     Highrise::Base.site = 'http://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
 
