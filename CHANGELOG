@@ -124,7 +124,7 @@ Date:   Fri May 29 22:34:03 2009 -1000
   * Add Person.tag that show a array of tags, and Perton.tag(name), add a new
     tag to a person.
 
-2009-01-14 tapajos
+2009-01-14 Marcos Tapajós
 
   * Version 0.5.0
   
