@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Highrise::Note do
 
   before(:each) do
+    Highrise::Base.site = 'http://example.com.i:3000'
     @note = Highrise::Note.new(:id => 1)
   end
   
