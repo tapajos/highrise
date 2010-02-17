@@ -1,3 +1,43 @@
+Author: Kenneth Mayer <kmayer@bitwrangler.com>
+Date:   Wed Feb 17 09:42:25 2010 -1000
+
+    Version bump to 2.0.0 -- Complete rewrite of Cachable. Interface has changed, see docs and examples.
+
+Author: Kenneth Mayer <kmayer@bitwrangler.com>
+Date:   Mon Feb 15 13:41:28 2010 -1000
+
+    Version bump to 1.2.0
+
+    Added Account class to handle the /account.xml end point.
+
+Author: Marcos Tapajós <tapajos@gmail.com>
+Date:   Wed Feb 10 22:57:34 2010 -0200
+
+    Version bump to 1.1.0 -- Added Deal class, .add_note helper, /me.xml endpoint
+
+Author: Kenneth Mayer <kmayer@bitwrangler.com>
+Date:   Wed Sep 2 08:56:42 2009 -1000
+
+    Version bump to 1.0.1
+
+    Added a couple of convenience methods.
+
+Author: Kenneth Mayer <kmayer@bitwrangler.com>
+Date:   Tue Sep 1 21:32:19 2009 -1000
+
+    Version bump to 1.0.0
+
+    Revised Taggable interface to support new tag API from 37Sigs and (removed curl dependencies)
+
+    Refactored Cachable
+
+Author: Kenneth Mayer <kmayer@bitwrangler.com>
+Date:   Fri May 29 22:34:03 2009 -1000
+
+    Version bump to 0.13.0
+
+    Added Tag.find_by_name
+
 2009-05-27 Ken Mayer <kmayer@bitwrangler.com>
 
   * Version 0.12.0

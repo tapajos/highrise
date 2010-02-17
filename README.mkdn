@@ -1,4 +1,4 @@
-# Highrise (1.2.0)
+# Highrise (2.0.0)
 
 ## What is it?
 
@@ -28,7 +28,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
 and, if you want [caching][c]:
 
-    Highrise::Base.cache_store= <your normal ActiveSupport::Caching options>
+    Highrise::Base.connection.cache_store= <your normal ActiveSupport::Caching options>
     
 If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
 file is recommended. See config_initializers_highrise.rb in the examples/ directory.
