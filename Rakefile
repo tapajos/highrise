@@ -1,14 +1,7 @@
 # encoding: utf-8
 
-require 'rake'
-require 'rubygems'
-require 'rake/rdoctask'
-require 'rake/testtask'
+gem 'rspec', ">= 1.3.0"
 require 'spec/rake/spectask'
-require "date"
-require "fileutils"
-require "rubygems"
-require "rake/gempackagetask"
 
 begin
   require 'jeweler'

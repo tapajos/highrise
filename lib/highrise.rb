@@ -1,3 +1,4 @@
+gem 'activeresource', " >= 2.3.8"
 require 'active_resource'
 $:.unshift(File.dirname(__FILE__))
 
