@@ -25,8 +25,9 @@ Highrise::Base.user = 'your_api_auth_token'
     gemspec.add_dependency('activeresource', '>= 2.1')
     gemspec.add_dependency('activesupport', '>= 2.1')
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
-  puts "Jeweler not available. Install it with: sudo gem install jeweler -s http://gems.github.com"
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
 end
 
 desc 'Default: run unit tests.'
