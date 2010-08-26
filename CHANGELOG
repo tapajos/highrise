@@ -1,3 +1,8 @@
+Author: Marcos Tapajós <tapajos@gmail.com>
+Date:   Wed Aug 25 23:05:00 2010 -0300
+
+    Version bump to 2.0.1 -- Add Gemspec. It is necessary to use GemBundler with :git => repository...
+
 Author: Kenneth Mayer <kmayer@bitwrangler.com>
 Date:   Wed Feb 17 09:42:25 2010 -1000
 

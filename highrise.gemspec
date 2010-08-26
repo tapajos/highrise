@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{highrise}
-  s.version = "2.0.0"
+  s.version = "2.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Tapaj\303\263s", "Ken Mayer"]
-  s.date = %q{2010-04-23}
+  s.date = %q{2010-08-25}
   s.description = %q{
 Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
 gem is a cleaned up, tested version of the same. Contributors have added support for tags 
@@ -36,6 +36,7 @@ Highrise::Base.user = 'your_api_auth_token'
      "examples/config_initializers_highrise.rb",
      "examples/extending.rb",
      "examples/sample.rb",
+     "highrise.gemspec",
      "install.rb",
      "lib/cachable.rb",
      "lib/highrise.rb",
@@ -80,7 +81,7 @@ Highrise::Base.user = 'your_api_auth_token'
   s.homepage = %q{http://github.com/tapajos/highrise}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Ruby wrapper around Highrise API}
   s.test_files = [
     "spec/cachable_spec.rb",
@@ -110,7 +111,7 @@ Highrise::Base.user = 'your_api_auth_token'
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activeresource>, [">= 2.1"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.1"])
     else
