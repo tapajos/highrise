@@ -7,7 +7,7 @@ describe Highrise::Person do
   before(:each) do
     Highrise::Base.site = 'http://example.com.i:3000'
     @person = Highrise::Person.new(:id => 1)
-    returning @tags = [] do 
+    (@tags = []).tap do 
       @tags << {'id' => "414578", 'name' => "cliente"}
       @tags << {'id' => "414587", 'name' => "walk"}
     end

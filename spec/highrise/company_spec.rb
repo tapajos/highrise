@@ -5,7 +5,7 @@ describe Highrise::Company do
   before(:each) do
     Highrise::Base.site = 'http://example.com.i:3000'
     @company = Highrise::Company.new(:id => 1)
-    returning @tags = [] do 
+    (@tags = []).tap do 
       @tags << {'id' => "414578", 'name' => "cliente"}
       @tags << {'id' => "414580", 'name' => "ged"}
       @tags << {'id' => "414579", 'name' => "iepc"}
