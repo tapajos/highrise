@@ -4,7 +4,7 @@
 
 This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]:
 
-    Account, Comment, Company, Deal, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
+    Account, Comment, Company, Deal, DealCategory, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User.
 
 All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveResouce][ar] documentation for more information.
 
