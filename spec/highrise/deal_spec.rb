@@ -17,4 +17,14 @@ describe Highrise::Deal do
     end
   end
 
+  describe ".update_status" do
+    it "should raise ArgumentError if status is invalid" do
+      lambda { Highrise::Deal.update_status("invalid").should raise_error(ArgumentError) }
+    end
+    
+    it "should update status to won" do
+      @deal.should_receive(:put).with(:status, :status => {:name => "won"})
+      @deal.update_status("won")
+    end
+  end
 end
