@@ -22,6 +22,13 @@ describe Highrise::Subject do
       @subject.add_note :body=>'body'
     end
   end
+  
+  describe ".add_task" do
+    it "should delegate to Highrise::Task.create with correct params" do
+      Highrise::Task.should_receive(:create).with({:body=>"body", :subject_id=>1, :subject_type=>'Subject'}).and_return(mock('task'))
+      @subject.add_task :body=>'body'
+    end
+  end
 
   describe ".emails" do
     it "should delegate to Highrise::Email with correct params" do
