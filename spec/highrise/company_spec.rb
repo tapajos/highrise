@@ -29,7 +29,7 @@ describe Highrise::Company do
   describe "people" do
 
     it "should delegate to Highrise::Person.find with correct params" do
-      Highrise::Person.should_receive(:find).with(:all, {:from=>"/companies/1/people.xml"}).and_return("people")
+      Highrise::Person.should_receive(:find_all_across_pages).with(:from=>"/companies/1/people.xml").and_return("people")
       @company.people.should == "people"
     end
 

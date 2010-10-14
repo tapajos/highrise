@@ -8,7 +8,7 @@ module Highrise
     end
 
     def people
-      Person.find(:all, :from => "/companies/#{id}/people.xml")
+      Person.find_all_across_pages(:from => "/companies/#{id}/people.xml")
     end
     
     def label
