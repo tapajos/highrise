@@ -6,7 +6,7 @@ module Highrise
     
     # You can't find :one because that finds all *objects* with that tag
     def self.find_by_name(arg)
-      tags = self.find(:all).detect{|tag| tag.name == arg}
+      self.find(:all).detect{|tag| tag.name == arg}
     end
   end
 end
