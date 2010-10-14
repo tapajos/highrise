@@ -15,9 +15,17 @@ describe Highrise::Kase do
     it "should set close date and save" do
       time = Time.parse("Wed Jan 14 15:43:11 -0200 2009")
       Time.should_receive(:now).and_return(time)
-      @kase.should_receive(:closed_at=).with(time.utc)
-      @kase.should_receive(:save)
+      @kase.should_receive(:update_attribute).with(:closed_at, time.utc)
       @kase.close!
+    end
+
+  end
+
+  describe ".open!" do
+
+    it "should set close date to nil and save" do
+      @kase.should_receive(:update_attribute).with(:closed_at, nil)
+      @kase.open!
     end
 
   end
