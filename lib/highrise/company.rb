@@ -4,7 +4,7 @@ module Highrise
     include Taggable
 
     def self.find_all_across_pages_since(time)
-      find_all_across_pages(:params => { :since => time.utc.to_s(:db).gsub(/[^\d]/, '') })
+      find_all_across_pages(:params => { :since => time.utc.strftime("%Y%m%d%H%M%S") })
     end
 
     def people
