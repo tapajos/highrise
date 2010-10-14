@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/spec_helper'
+require 'cachable'
 
 class CachedResource < ActiveResource::Base
   include ::Cachable
