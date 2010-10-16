@@ -1,9 +1,7 @@
 source "http://rubygems.org"
 
-gem "activeresource"
-gem "activesupport"
+gem "activeresource", "~>3.0.0"
 
-# gem "rails"
 group :test do
-	gem "rspec", '1.3.0'
+	gem "rspec", "~>2.0.0"
 end 

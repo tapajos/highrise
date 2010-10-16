@@ -10,13 +10,22 @@ GEM
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     builder (2.1.2)
+    diff-lcs (1.1.2)
     i18n (0.4.1)
-    rspec (1.3.0)
+    rspec (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+      rspec-mocks (= 2.0.0)
+    rspec-core (2.0.0)
+    rspec-expectations (2.0.0)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeresource
-  activesupport
-  rspec (= 1.3.0)
+  activeresource (~> 3.0.0)
+  rspec (~> 2.0.0)

@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
 desc 'Default: run unit tests.'
 task :default => :spec
 
 desc "Run all specs"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = FileList['spec/**/*_spec.rb']
-  t.spec_opts = ['--options', 'spec/spec.opts']
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+  t.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"]
 end
