@@ -1,4 +1,3 @@
 module Highrise
-  class Group < Base
-  end
+  class Group < Base; end
 end

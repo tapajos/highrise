@@ -11,6 +11,8 @@ module Highrise
         records
       end
 
+      private
+      
       def each(options = {})
         options[:params] ||= {}
         options[:params][:n] = 0

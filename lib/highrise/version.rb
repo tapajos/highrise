@@ -1,3 +1,3 @@
 module Highrise
-  VERSION = "3.0.0.pre"
+  VERSION = "3.0.0.pre02"
 end

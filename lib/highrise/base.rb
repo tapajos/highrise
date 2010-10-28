@@ -1,4 +1,3 @@
 module Highrise
-  class Base < ActiveResource::Base
-  end
+  class Base < ActiveResource::Base; end
 end

@@ -1,10 +1,10 @@
-require 'rubygems'
 require 'bundler'
 Bundler.setup
 
 require File.dirname(__FILE__) + '/../lib/highrise'
-Highrise::Base.user = 'x'
-Highrise::Base.site = 'http://www.example.com'
+
+Highrise::Base.user = ENV['HIGHRISE_USER'] || 'x'
+Highrise::Base.site = ENV['HIGHRISE_SITE'] || 'http://www.example.com'
 
 def turn_methods_public(klass, method_name = nil)
   if method_name
