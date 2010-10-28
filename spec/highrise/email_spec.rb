@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Highrise::Email do
-  it { subject.should be_a_kind_of Highrise::Base }
-  it { subject.class.included_modules.should include(Highrise::Pagination) }
+  it { should be_a_kind_of Highrise::Base }
+
+  it_should_behave_like "a paginated class"
   
   it "#comments" do
     subject.should_receive(:email_id).and_return(1)

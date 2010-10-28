@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Highrise::Subject do
   subject { Highrise::Subject.new(:id => 1) }
 
-  it { subject.should be_a_kind_of Highrise::Base }
+  it { should be_a_kind_of Highrise::Base }
 
   it "#notes" do
     Highrise::Note.should_receive(:find_all_across_pages).with({:from=>"/subjects/1/notes.xml"}).and_return("notes")

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Highrise::Kase do
-  it { subject.should be_a_kind_of Highrise::Subject }
+  it { should be_a_kind_of Highrise::Subject }
   
   it "#close!" do
     mocked_now = Time.parse("Wed Jan 14 15:43:11 -0200 2009")

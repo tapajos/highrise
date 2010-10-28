@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Highrise::User do
-  it { subject.should be_a_kind_of Highrise::Base }
+  it { should be_a_kind_of Highrise::Base }
   
   it ".me" do
     Highrise::User.should_receive(:find).with(:one, {:from => "/me.xml"}).and_return(subject)

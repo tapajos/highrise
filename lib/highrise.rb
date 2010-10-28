@@ -1,5 +1,4 @@
 require 'active_resource'
-$:.unshift(File.dirname(__FILE__))
 
 require 'highrise/base'
 require 'highrise/pagination'
