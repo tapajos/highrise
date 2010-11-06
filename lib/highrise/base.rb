@@ -3,8 +3,7 @@ module Highrise
     protected
     # Dynamic finder for attributes
     def self.method_missing(method, *args)
-      case method.to_s
-      when /^find_(all_)?by_([_a-zA-Z]\w*)$/
+      if method.to_s =~ /^find_(all_)?by_([_a-zA-Z]\w*)$/
         raise ArgumentError, "Dynamic finder method must take an argument." if args.empty?
         options = args.extract_options!
         resources = respond_to?(:find_all_across_pages) ? send(:find_all_across_pages, options) : send(:find, :all)
