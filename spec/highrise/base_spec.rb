@@ -4,28 +4,45 @@ describe Highrise::Base do
   it { subject.should be_a_kind_of ActiveResource::Base }
 
   describe "dynamic finder methods" do
-    before(:each) do
-      @john_doe = Highrise::Person.new(:id => 1, :first_name => "John", :last_name => "Doe")
-      @john_baker = Highrise::Person.new(:id => 2, :first_name => "John", :last_name => "Baker")
-      @joe_smith = Highrise::Person.new(:id => 3, :first_name => "Joe", :last_name => "Smith")
+    context "without pagination" do
+      before do
+        @deal_one   = Highrise::Base.new(:id => 1, :name => "A deal")
+        @deal_two   = Highrise::Base.new(:id => 2, :name => "A deal")
+        @deal_three = Highrise::Base.new(:id => 3, :name => "Another deal")
+        Highrise::Base.should_receive(:find).with(:all).and_return([@deal_one, @deal_two, @deal_three])
+      end
+      it ".find_by_(attribute) finds one" do
+        Highrise::Base.find_by_name("A deal").should == @deal_one
+      end
+
+      it ".find_all_by_(attribute) finds all" do
+        Highrise::Base.find_all_by_name("A deal").should == [@deal_one, @deal_two]
+      end
     end
 
-    it "finds one when using find_by_(attribute)" do
-      Highrise::Person.should_receive(:find).with(:all).and_return([@john_doe, @john_baker, @joe_smith])
-      Highrise::Person.find_by_first_name("John").should == @john_doe
+    context "with pagination" do
+      before do
+        class PaginatedBaseClass < Highrise::Base; include Highrise::Pagination; end
+        @john_doe   = PaginatedBaseClass.new(:id => 1, :first_name => "John")
+        @john_baker = PaginatedBaseClass.new(:id => 2, :first_name => "John")
+        @joe_smith  = PaginatedBaseClass.new(:id => 3, :first_name => "Joe")
+        PaginatedBaseClass.should_receive(:find_all_across_pages).and_return([@john_doe, @john_baker, @joe_smith])
+      end
+      it ".find_by_(attribute) finds one" do
+        PaginatedBaseClass.find_by_first_name("John").should == @john_doe
+      end
+
+      it ".find_all_by_(attribute) finds all" do
+        PaginatedBaseClass.find_all_by_first_name("John").should == [@john_doe, @john_baker]
+      end
     end
 
-    it "finds all when using find_all_by_(attribute)" do
-      Highrise::Person.should_receive(:find).with(:all).and_return([@john_doe, @john_baker, @joe_smith])
-      Highrise::Person.find_all_by_first_name("John").should == [@john_doe, @john_baker]
+    it "expects arguments to the finder" do
+      expect { Highrise::Base.find_all_by_first_name }.to raise_error(ArgumentError)
     end
 
-    it "raises an argument when no arguments passed to method missing" do
-      lambda { Highrise::Person.find_all_by_first_name }.should raise_error(ArgumentError)
-    end
-
-    it "falls back to regular method missing if method doesnt match regex" do
-      lambda { Highrise::Person.any_other_method }.should raise_error(NoMethodError)
+    it "falls back to regular method missing" do
+      expect { Highrise::Base.any_other_method }.to raise_error(NoMethodError)
     end
   end
 end
