@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Highrise::Party do
+  it { should be_a_kind_of Highrise::Base }
+
   it ".recently_viewed" do
     Highrise::Party.should_receive(:find).with(:all, {:from => '/parties/recently_viewed.xml'})
     Highrise::Party.recently_viewed
