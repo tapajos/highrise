@@ -11,6 +11,11 @@ module Highrise
         records
       end
 
+      # This only is usefull for company, person & recordings, but should be safely ignored by other classes
+      def find_all_across_pages_since(time)
+        find_all_across_pages(:params => { :since => time.utc.strftime("%Y%m%d%H%M%S") })
+      end
+
       private
       
       def each(options = {})

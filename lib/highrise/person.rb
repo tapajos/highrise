@@ -4,10 +4,6 @@ module Highrise
     include Taggable
     include Searchable
     
-    def self.find_all_across_pages_since(time)
-      find_all_across_pages(:params => { :since => time.utc.strftime("%Y%m%d%H%M%S") })
-    end
-  
     def company
       Company.find(company_id) if company_id
     end
