@@ -8,6 +8,7 @@ describe Highrise::Person do
 
   it_should_behave_like "a paginated class"
   it_should_behave_like "a taggable class"
+  it_should_behave_like "a searchable class"
 
   it ".find_all_across_pages_since" do
     mocked_now = Time.parse("Wed Jan 14 15:43:11 -0200 2009")

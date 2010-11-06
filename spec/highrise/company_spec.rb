@@ -6,6 +6,7 @@ describe Highrise::Company do
   it { should be_a_kind_of Highrise::Base }
   it_should_behave_like "a paginated class"
   it_should_behave_like "a taggable class"
+  it_should_behave_like "a searchable class"
 
   it ".find_all_across_pages_since" do
     time = Time.parse("Wed Jan 14 15:43:11 -0200 2009")
