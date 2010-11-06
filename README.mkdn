@@ -44,16 +44,20 @@ This code is free to be used under the terms of the [MIT license][mit].
 
 Comments are welcome. Send your feedback through the [issue tracker on GitHub][i]
 
+If you have fixes: Submit via pull requests. Do not include version changes to the 
+version file. 
+
 ## Authors
 
-* [Marcos Tapajós][mt]
-* [Ken Mayer][km]
+* [Marcos Tapajós][tapajos]
+* [Ken Mayer][kmayer]
 
 ## Contributors
 
-* [Nicolas Bianco][nb]
-* [Luis Gustavo][lg]
-* [Thiago Lelis][tl]
+* [Nicolas Bianco][slainer86]
+* [Luis Gustavo][luisbebop]
+* [Thiago Lelis][ThiagoLelis]
+* [Denis Odorcic][odorcicd]
 
 ## Special Thanks
 
@@ -66,14 +70,15 @@ for writing an excellent tutorial and [posting your source][e] on GitHub.
 [c]:  http://api.rubyonrails.org/classes/ActiveSupport/Cache
 [e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
-[i]:  http://github.com/tapajos/highrise/issues
-[km]: http://github.com/kmayer
-[lg]: http://github.com/luisbebop
+[i]:  https://github.com/tapajos/highrise/issues
+[kmayer]: https://github.com/kmayer
+[lg]: https://github.com/luisbebop
 [mit]:http://www.opensource.org/licenses/mit-license.php
-[mt]: http://www.improveit.com.br/en/company/tapajos
-[nb]: http://github.com/slainer86
+[tapajos]: http://www.improveit.com.br/en/company/tapajos
+[nb]: https://github.com/slainer86
 [re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
 [rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
-[tl]: http://github.com/ThiagoLelis
+[tl]: https://github.com/ThiagoLelis
 [rdoc]: http://rdoc.info/projects/tapajos/highrise
 [caliper]: https://devver.net/caliper/project?repo=git%3A%2F%2Fgithub.com%2Ftapajos%2Fhighrise.git
+[odorcicd]: https://github.com/odorcicd
