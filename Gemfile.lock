@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    highrise (3.0.0.pre02)
+    highrise (3.0.0.pre04)
       activeresource (~> 3.0.0)
 
 GEM
