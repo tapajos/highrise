@@ -10,12 +10,6 @@ describe Highrise::Person do
   it_should_behave_like "a taggable class"
   it_should_behave_like "a searchable class"
 
-  it ".find_all_across_pages_since" do
-    mocked_now = Time.parse("Wed Jan 14 15:43:11 -0200 2009")
-    Highrise::Person.should_receive(:find_all_across_pages).with({:params=>{:since=>"20090114174311"}}).and_return("result")
-    Highrise::Person.find_all_across_pages_since(mocked_now).should == "result"
-  end
-  
   describe "#company" do
     it "returns nil when it doesn't have a company" do
       subject.should_receive(:company_id).and_return(nil)
