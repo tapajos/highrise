@@ -1,10 +1,10 @@
-# Highrise (2.0.0)
+# Highrise (3.0.0)
 
 ## What is it?
 
 This gem provides a set of classes to access information on [Highrise][h] via the published [API][api]:
 
-    Account, Comment, Company, Deal, Email, Group, Case, Membership, Note, Person, Subject, Tag, Task, User. 
+    Account, Comment, Company, Deal, DealCategory, Email, Group, Case, Membership, Note, Party, Person, Recording, Subject, Tag, Task, TaskCategory and User.
 
 All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveResouce][ar] documentation for more information.
 
@@ -12,24 +12,19 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 
     gem install highrise
 
-### Dependencies (see the Rakefile or run <code>rake check_dependencies</code>)
+### Dependencies (see <code>highrise.gemspec</code> or run <code>bundle check</code>)
 
 ### Documentation
 
-  I'm on [rdoc.info][rdoc] and here're some [metrics][caliper]
+  I'm on [rdoc.info][rdoc]
 
 ### Configure your key
     
-    require 'rubygems'
     require 'highrise'
     
     Highrise::Base.site = 'http://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
 
-and, if you want [caching][c]:
-
-    Highrise::Base.connection.cache_store= <your normal ActiveSupport::Caching options>
-    
 If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
 file is recommended. See config_initializers_highrise.rb in the examples/ directory.
 
@@ -49,36 +44,33 @@ This code is free to be used under the terms of the [MIT license][mit].
 
 Comments are welcome. Send your feedback through the [issue tracker on GitHub][i]
 
+If you have fixes: Submit via pull requests. Do not include version changes to the 
+version file. 
+
 ## Authors
 
-* [Marcos Tapajós][mt]
-* [Ken Mayer][km]
+* [Marcos Tapajós][tapajos]
+* [Ken Mayer][kmayer]
 
 ## Contributors
 
-* [Nicolas Bianco][nb]
-* [Luis Gustavo][lg]
-* [Thiago Lelis][tl]
+* [Nicolas Bianco][slainer86]
+* [Luis Gustavo][luisbebop]
+* [Thiago Lelis][ThiagoLelis]
+* [Denis Odorcic][odorcicd]
 
-## Special Thanks
-
-[Rails Envy Podcast Episode #77][re] for mentioning
-[How to Cache Anything With ActiveSupport][rh] on the very *day* I started writing the cache code. Thank you, Rein
-for writing an excellent tutorial and [posting your source][e] on GitHub.
+## References
 
 [api]: http://developer.37signals.com/highrise
 [ar]: http://api.rubyonrails.org/classes/ActiveResource/Base.html
 [c]:  http://api.rubyonrails.org/classes/ActiveSupport/Cache
-[e]:  http://github.com/primedia/endeca/tree/master
 [h]:  http://www.highrisehq.com/
-[i]:  http://github.com/tapajos/highrise/issues
-[km]: http://github.com/kmayer
-[lg]: http://github.com/luisbebop
+[i]:  https://github.com/tapajos/highrise/issues
+[kmayer]: https://github.com/kmayer
+[lg]: https://github.com/luisbebop
 [mit]:http://www.opensource.org/licenses/mit-license.php
-[mt]: http://www.improveit.com.br/en/company/tapajos
-[nb]: http://github.com/slainer86
-[re]: http://www.railsenvy.com/2009/4/29/rails-envy-podcast-episode-077-04-29-2009
-[rh]: http://reinh.com/blog/2009/04/27/how-to-cache-anything-with-activesupport.html
-[tl]: http://github.com/ThiagoLelis
+[nb]: https://github.com/slainer86
+[odorcicd]: https://github.com/odorcicd
 [rdoc]: http://rdoc.info/projects/tapajos/highrise
-[caliper]: https://devver.net/caliper/project?repo=git%3A%2F%2Fgithub.com%2Ftapajos%2Fhighrise.git
+[tapajos]: http://www.improveit.com.br/en/company/tapajos
+[tl]: https://github.com/ThiagoLelis

@@ -2,13 +2,14 @@ module Highrise
   class Company < Subject
     include Pagination
     include Taggable
+    include Searchable
 
     def self.find_all_across_pages_since(time)
-      find_all_across_pages(:params => { :since => time.utc.to_s(:db).gsub(/[^\d]/, '') })
+      find_all_across_pages(:params => { :since => time.utc.strftime("%Y%m%d%H%M%S") })
     end
 
     def people
-      Person.find(:all, :from => "/companies/#{id}/people.xml")
+      Person.find_all_across_pages(:from => "/companies/#{id}/people.xml")
     end
     
     def label

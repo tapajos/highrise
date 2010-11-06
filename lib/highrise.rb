@@ -1,10 +1,7 @@
-gem 'activeresource', " >= 2.3.8"
-require 'active_resource'
-$:.unshift(File.dirname(__FILE__))
-
 require 'highrise/base'
 require 'highrise/pagination'
 require 'highrise/taggable'
+require 'highrise/searchable'
 require 'highrise/subject'
 require 'highrise/comment'
 require 'highrise/company'
@@ -19,3 +16,7 @@ require 'highrise/user'
 require 'highrise/tag'
 require 'highrise/deal'
 require 'highrise/account'
+require 'highrise/deal_category'
+require 'highrise/task_category'
+require 'highrise/party'
+require 'highrise/recording'

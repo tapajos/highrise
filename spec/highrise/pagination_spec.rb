@@ -1,10 +1,8 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Highrise::Pagination do
+  class TestClass < Highrise::Base; include Highrise::Pagination; end
+  subject { TestClass.new }
   
-  it "should be tested" do
-    Highrise::Person.should_receive(:find).with(:all,{:params=>{:n=>0}}).and_return(["people"])
-    Highrise::Person.should_receive(:find).with(:all,{:params=>{:n=>1}}).and_return([])
-    Highrise::Person.find_all_across_pages.should == ["people"]
-  end
+  it_should_behave_like "a paginated class"
 end

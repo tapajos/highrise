@@ -1,4 +1,3 @@
 module Highrise
-  class Membership < Base
-  end
+  class Membership < Base; end
 end

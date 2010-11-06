@@ -1,4 +1,3 @@
 module Highrise
-  class Comment < Base
-  end
+  class Comment < Base; end
 end
