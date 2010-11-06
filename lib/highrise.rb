@@ -1,5 +1,3 @@
-require 'active_resource'
-
 require 'highrise/base'
 require 'highrise/pagination'
 require 'highrise/taggable'

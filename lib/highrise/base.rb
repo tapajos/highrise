@@ -1,3 +1,5 @@
+require 'active_resource'
+
 module Highrise
   class Base < ActiveResource::Base
     protected
