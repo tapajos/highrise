@@ -22,7 +22,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
     
     require 'highrise'
     
-    Highrise::Base.site = 'http://your_site.highrisehq.com'
+    Highrise::Base.site = 'https://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
 
 If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
