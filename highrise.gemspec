@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.add_dependency "activeresource", "~>3.0.0"
   s.add_development_dependency "rspec"
 
-  s.files         =  `git ls-files`.split("\n")
+  s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features,examples}/*`.split("\n")
   s.require_paths = ["lib"]
 
@@ -29,5 +29,4 @@ Gem::Specification.new do |s|
     Highrise::Base.site = 'http://your_site.highrisehq.com/'
     Highrise::Base.user = 'your_api_auth_token'
   EOT
-
 end

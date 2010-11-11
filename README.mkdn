@@ -59,7 +59,7 @@ version file.
 * [Thiago Lelis][ThiagoLelis]
 * [Denis Odorcic][odorcicd]
 
-## References
+
 
 [api]: http://developer.37signals.com/highrise
 [ar]: http://api.rubyonrails.org/classes/ActiveResource/Base.html
@@ -67,10 +67,10 @@ version file.
 [h]:  http://www.highrisehq.com/
 [i]:  https://github.com/tapajos/highrise/issues
 [kmayer]: https://github.com/kmayer
-[lg]: https://github.com/luisbebop
+[luisbebop]: https://github.com/luisbebop
 [mit]:http://www.opensource.org/licenses/mit-license.php
-[nb]: https://github.com/slainer86
+[slainer86]: https://github.com/slainer86
 [odorcicd]: https://github.com/odorcicd
 [rdoc]: http://rdoc.info/projects/tapajos/highrise
 [tapajos]: http://www.improveit.com.br/en/company/tapajos
-[tl]: https://github.com/ThiagoLelis
+[ThiagoLelis]: https://github.com/ThiagoLelis
