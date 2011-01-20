@@ -1,12 +1,12 @@
 # Caching is a way to speed up slow ActiveResource queries by keeping the result of
-# a request around to be reused by subsequent requests. 
-# 
+# a request around to be reused by subsequent requests.
+#
 # Caching is turned OFF by default.
 #
 # == Usage
-# 
+#
 #   require 'cachable'
-# 
+#
 #   module CachedResource < ActiveResource::Base
 #     include ::Cachable
 #   end
@@ -42,21 +42,21 @@ module Cachable
       def cache_store=(store)
         @cache_store = store
       end
-      
+
       def cache_options
         @cache_options ||= {}
       end
       alias :store_options :cache_options
-      
+
       def cache_options=(options)
         @cache_options = options
       end
       alias :store_options= :cache_options=
-      
+
       def is_caching?
         !@cache_store.nil?
       end
-      
+
       def get_with_cache(path, headers = {})
         return get_without_cache(path, headers) unless is_caching?
         cache_store.fetch(cache_key(path), cache_options) {get_without_cache(path, headers)}
@@ -64,20 +64,20 @@ module Cachable
       alias_method_chain :get, :cache
 
       def put_with_cache(path, body = '', headers = {})
-        cache_store.delete(cache_key(path))
+        cache_store.try(:delete, cache_key(path))
         put_without_cache(path, body, headers)
       end
       alias_method_chain :put, :cache
-      
+
       def delete_with_cache(path, headers = {})
         cache_store.delete(cache_key(path))
         delete_without_cache(path, headers)
       end
       alias_method_chain :delete, :cache
-      
+
       def cache_key(*args)
         args.join(':')
       end
     end
-  end  
+  end
 end
