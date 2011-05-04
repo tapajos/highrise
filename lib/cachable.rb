@@ -64,13 +64,13 @@ module Cachable
       alias_method_chain :get, :cache
 
       def put_with_cache(path, body = '', headers = {})
-        cache_store.delete(cache_key(path))
+        cache_store.try(:delete, cache_key(path))
         put_without_cache(path, body, headers)
       end
       alias_method_chain :put, :cache
       
       def delete_with_cache(path, headers = {})
-        cache_store.delete(cache_key(path))
+        cache_store.try(:delete, cache_key(path))
         delete_without_cache(path, headers)
       end
       alias_method_chain :delete, :cache
