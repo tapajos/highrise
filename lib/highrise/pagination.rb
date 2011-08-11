@@ -59,7 +59,7 @@ module Highrise
 
             records.each{ |record| yield record }
 
-            # increment index interval for deletions is 1 per page of 500 resources
+            # index increment for deletions is 1 per page of 500 resources
             options[:params][:n] += 1
           else
             break # no deletions included on that page, thus no more deletions
