@@ -33,6 +33,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeresource (~> 3.0.0)
   highrise!
   rspec (~> 2.0.1)
