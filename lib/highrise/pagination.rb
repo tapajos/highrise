@@ -55,7 +55,7 @@ module Highrise
         loop do
           if (records = self.find(:all, options)).try(:any?)
             # reject the records whose resource type is different from self
-            records.reject!{|r| r.type != self.to_s.split('::').last}
+            records.reject!{|r| r.class.to_s.split('::').last != self.to_s.split('::').last}
 
             records.each{ |record| yield record }
 
