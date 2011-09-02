@@ -3,7 +3,7 @@ module Highrise
     include Pagination
 
     def comments
-      Comment.find(:all, :from => "/emails/#{email_id}/comments.xml")
+      Comment.find(:all, :from => "/emails/#{id}/comments.xml")
     end
   end
 end
