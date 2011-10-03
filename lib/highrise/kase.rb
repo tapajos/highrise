@@ -1,5 +1,7 @@
 module Highrise
   class Kase < Subject
+    include Pagination
+
     def open!
       update_attribute(:closed_at, nil)
     end
@@ -14,6 +16,14 @@ module Highrise
 
     def self.closed
       Kase.find(:all, :from => "/kases/closed.xml")
+    end
+
+    def self.all_open_across_pages
+      find_all_across_pages(:from => "/kases/open.xml")
+    end
+
+    def self.all_closed_across_pages
+      find_all_across_pages(:from => "/kases/closed.xml")
     end
   end
 end
