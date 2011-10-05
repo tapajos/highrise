@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    highrise (3.0.2)
+    highrise (3.0.3)
       activeresource (~> 3.0)
 
 GEM
@@ -17,7 +17,8 @@ GEM
       activesupport (= 3.1.0)
     activesupport (3.1.0)
       multi_json (~> 1.0)
-    bcrypt-ruby (3.0.0)
+    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-java)
     builder (3.0.0)
     diff-lcs (1.1.2)
     i18n (0.6.0)
