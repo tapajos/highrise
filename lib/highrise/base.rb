@@ -3,6 +3,10 @@ require 'active_resource'
 module Highrise
   class Base < ActiveResource::Base
     protected
+
+    # Fix for ActiveResource 3.1+ errors
+    self.format = :xml
+
     # Dynamic finder for attributes
     def self.method_missing(method, *args)
       if method.to_s =~ /^find_(all_)?by_([_a-zA-Z]\w*)$/
