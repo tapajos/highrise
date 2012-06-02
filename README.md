@@ -24,6 +24,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
     
     Highrise::Base.site = 'https://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
+    Highrise::Base.format = :xml
 
 If you are using this in a Rails application, putting this code in a config/initializers/highrise.rb
 file is recommended. See config_initializers_highrise.rb in the examples/ directory.
