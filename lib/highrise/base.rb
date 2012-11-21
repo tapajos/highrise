@@ -4,6 +4,25 @@ module Highrise
   class Base < ActiveResource::Base
     protected
 
+    class << self
+      # If headers are not defined in a given subclass, then obtain
+      # headers from the superclass.
+      # http://opensoul.org/blog/archives/2010/02/16/active-resource-in-practice/
+      def headers
+        if defined?(@headers)
+          @headers
+        elsif superclass != Object && superclass.headers
+          superclass.headers
+        else
+          @headers ||= {}
+        end
+      end
+
+      def oauth_token=(token)
+        headers['Authorization'] = "Bearer #{token}"
+      end
+    end
+
     # Fix for ActiveResource 3.1+ errors
     self.format = :xml
 
