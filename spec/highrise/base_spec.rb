@@ -45,4 +45,11 @@ describe Highrise::Base do
       expect { Highrise::Base.any_other_method }.to raise_error(NoMethodError)
     end
   end
+
+  describe "when using an oauth token" do
+    it ".oauth_token= writes a bearer authorization header" do
+      Highrise::Base.oauth_token = 'OAUTH_TOKEN'
+      Highrise::Base.headers['Authorization'].should == 'Bearer OAUTH_TOKEN'
+    end
+  end
 end
