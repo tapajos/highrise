@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.add_dependency "activeresource", "~>3.0"
-  s.add_development_dependency "rspec", "~> 2.13.0"
-  s.add_development_dependency "rake", "=0.8.7"
+  s.add_dependency "activeresource", "~> 3.0"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "rake"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features,examples}/*`.split("\n")
