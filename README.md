@@ -1,4 +1,4 @@
-# Highrise (3.0.0) [![Build Status](https://secure.travis-ci.org/tapajos/highrise.png)](http://travis-ci.org/tapajos/highrise)
+# Highrise (3.0.3) [![Build Status](https://secure.travis-ci.org/tapajos/highrise.png)](http://travis-ci.org/tapajos/highrise)
 
 ## What is it?
 
@@ -53,13 +53,7 @@ version file.
 * [Marcos Tapajós][tapajos]
 * [Ken Mayer][kmayer]
 
-## Contributors
-
-* [Nicolas Bianco][slainer86]
-* [Luis Gustavo][luisbebop]
-* [Thiago Lelis][ThiagoLelis]
-* [Denis Odorcic][odorcicd]
-
+## [Contributors][list]
 
 
 [api]: http://developer.37signals.com/highrise
@@ -68,10 +62,7 @@ version file.
 [h]:  http://www.highrisehq.com/
 [i]:  https://github.com/tapajos/highrise/issues
 [kmayer]: https://github.com/kmayer
-[luisbebop]: https://github.com/luisbebop
 [mit]:http://www.opensource.org/licenses/mit-license.php
-[slainer86]: https://github.com/slainer86
-[odorcicd]: https://github.com/odorcicd
 [rdoc]: http://rdoc.info/projects/tapajos/highrise
 [tapajos]: http://www.improveit.com.br/en/company/tapajos
-[ThiagoLelis]: https://github.com/ThiagoLelis
+[list]: https://github.com/tapajos/highrise/graphs/contributors
