@@ -1,4 +1,4 @@
-# Highrise (3.0.3) [![Build Status](https://secure.travis-ci.org/tapajos/highrise.png)](http://travis-ci.org/tapajos/highrise)
+# Highrise (master) [![Build Status](https://secure.travis-ci.org/tapajos/highrise.png)](http://travis-ci.org/tapajos/highrise)
 
 ## What is it?
 
