@@ -30,6 +30,6 @@ Gem::Specification.new do |s|
     Highrise::Base.site = 'http://your_site.highrisehq.com/'
     Highrise::Base.user = 'your_api_auth_token'
   EOT
-  s.signing_key = "#{File.expand_path('~')}/.gem-private_key.pem"
+  s.signing_key = "#{File.expand_path('~')}/.gem-private_key.pem" if File.exists?("#{File.expand_path('~')}/.gem-private_key.pem")
   s.cert_chain  = ['certs/gem-public_cert.pem']
 end
