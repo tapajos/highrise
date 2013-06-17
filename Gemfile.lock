@@ -2,24 +2,24 @@ PATH
   remote: .
   specs:
     highrise (3.0.5)
-      activeresource (~> 3.0)
+      activeresource (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (3.2.12)
-      activesupport (= 3.2.12)
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
       builder (~> 3.0.0)
-    activeresource (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
-    activesupport (3.2.12)
-      i18n (~> 0.6)
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
       multi_json (~> 1.0)
     builder (3.0.4)
     diff-lcs (1.2.1)
-    i18n (0.6.4)
-    multi_json (1.6.1)
+    i18n (0.6.1)
+    multi_json (1.7.7)
     rake (10.0.3)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
