@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "highrise/version"
 
 Gem::Specification.new do |s|
-  s.name        = "highrise"
+  s.name        = "highrise-rails4"
   s.version     = Highrise::VERSION
   s.platform    = Gem::Platform::RUBY
 
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
 
   s.authors       = ["Marcos Tapaj\303\263s", "Ken Mayer"]
   s.email         = ["marcos@tapajos.me", "kmayer@bitwrangler.com"]
-  s.homepage      = "http://github.com/tapajos/highrise"
-  s.summary       = %q{Ruby wrapper around Highrise API}
+  s.homepage      = "http://github.com/lucasmartins/highrise"
+  s.summary       = %q{Do not use this Gem, it is experimental}
   s.description   = <<-EOT
     Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
     gem is a cleaned up, tested version of the same. 
@@ -30,6 +30,6 @@ Gem::Specification.new do |s|
     Highrise::Base.site = 'http://your_site.highrisehq.com/'
     Highrise::Base.user = 'your_api_auth_token'
   EOT
-  s.signing_key = "#{File.expand_path('~')}/.gem-private_key.pem"
-  s.cert_chain  = ['certs/gem-public_cert.pem']
+  #s.signing_key = "#{File.expand_path('~')}/.gem-private_key.pem"
+  #s.cert_chain  = ['certs/gem-public_cert.pem']
 end
