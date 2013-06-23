@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    highrise (3.0.5)
+    highrise-rails4 (3.1.0.pre)
       activeresource (~> 4.0.0.beta1)
 
 GEM
@@ -32,7 +32,7 @@ GEM
     diff-lcs (1.2.1)
     erubis (2.7.0)
     i18n (0.6.4)
-    minitest (4.7.4)
+    minitest (4.7.5)
     multi_json (1.7.7)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -63,6 +63,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  highrise!
+  highrise-rails4!
   rake
   rspec
