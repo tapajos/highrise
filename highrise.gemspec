@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.add_dependency "activeresource", "~> 3.0"
+  s.add_dependency "activeresource", "~> 4.0.0.beta1"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
 
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
 
   s.authors       = ["Marcos Tapaj\303\263s", "Ken Mayer"]
   s.email         = ["marcos@tapajos.me", "kmayer@bitwrangler.com"]
-  s.homepage      = "http://github.com/tapajos/highrise"
-  s.summary       = %q{Ruby wrapper around Highrise API}
+  s.homepage      = "http://github.com/lucasmartins/highrise"
+  s.summary       = %q{Do not use this Gem, it is experimental}
   s.description   = <<-EOT
     Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
     gem is a cleaned up, tested version of the same. 
