@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    highrise (3.1.0)
-      activeresource (~> 4.0.0)
+    highrise (3.1.1)
+      activeresource (~> 4.0.0.rc2)
 
 GEM
   remote: https://rubygems.org/
@@ -27,7 +27,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     atomic (1.1.9)
-    atomic (1.1.9-java)
     builder (3.1.4)
     diff-lcs (1.2.1)
     erubis (2.7.0)
