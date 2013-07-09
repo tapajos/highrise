@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.authors       = ["Marcos Tapaj\303\263s", "Ken Mayer"]
   s.email         = ["marcos@tapajos.me", "kmayer@bitwrangler.com"]
   s.homepage      = "http://github.com/lucasmartins/highrise"
-  s.summary       = %q{Do not use this Gem, it is experimental}
+  s.summary       = %q{Ruby wrapper around Highrise API}
   s.description   = <<-EOT
     Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
     gem is a cleaned up, tested version of the same. 
