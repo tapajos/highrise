@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Highrise::Person do
   subject { Highrise::Person.new(:id => 1) }
-  
+
   it { should be_a_kind_of Highrise::Subject }
 
   it_should_behave_like "a paginated class"
@@ -22,12 +22,26 @@ describe Highrise::Person do
       subject.company.should == "company"
     end
   end
-  
+
   it "#name" do
     subject.should_receive(:first_name).and_return("Marcos")
     subject.should_receive(:last_name).and_return("Tapajós     ")
     subject.name.should == "Marcos Tapajós"
   end
-  
+
+  describe "#tags" do
+    before(:each) do
+      (@tags = []).tap do
+        @tags << {'id' => "414578", 'name' => "cliente"}
+        @tags << {'id' => "414580", 'name' => "ged"}
+        @tags << {'id' => "414579", 'name' => "iepc"}
+      end
+      subject.attributes["tags"] = @tags
+    end
+    it {
+      subject.tags.should == @tags
+    }
+  end
+
   it { subject.label.should == 'Party' }
 end
