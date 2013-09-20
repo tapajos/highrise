@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    highrise (3.1.1)
+    highrise (3.1.2)
       activeresource (~> 3.2.13)
 
 GEM
@@ -19,7 +19,7 @@ GEM
     builder (3.0.4)
     diff-lcs (1.2.1)
     i18n (0.6.5)
-    multi_json (1.7.9)
+    multi_json (1.8.0)
     rake (10.0.3)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
