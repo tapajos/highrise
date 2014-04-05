@@ -1,9 +1,9 @@
 shared_examples_for "a taggable class" do
   before(:each) do
     (@tags = []).tap do 
-      @tags << {'id' => "414578", 'name' => "cliente"}
-      @tags << {'id' => "414580", 'name' => "ged"}
-      @tags << {'id' => "414579", 'name' => "iepc"}
+      @tags << Highrise::Tag.new(:name => "cliente", :id => 414578)
+      @tags << Highrise::Tag.new(:name => "ged", :id => 414580)
+      @tags << Highrise::Tag.new(:name => "iepc", :id => 414579)
     end
   end
 
