@@ -64,6 +64,12 @@ describe Highrise::Person do
     it "Can get the value of a custom field via the field method" do
       @fruit_person.field("Fruit Banana").should== "Yellow"
     end
+    
+    it "Can set the value of a custom field via the field method" do
+      @fruit_person.set_field_value("Fruit Grape", "Red")
+      @fruit_person.field("Fruit Grape").should== "Red"
+    end
+    
   end
 
   it { subject.label.should == 'Party' }
