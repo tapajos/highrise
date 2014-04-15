@@ -27,5 +27,14 @@ module Highrise
     def label
       'Party'
     end
+    
+    def field(field_label)
+      custom_fields = attributes["subject_datas"] ||= []
+      field = custom_fields.detect { |field|
+        field.subject_field_label == field_label
+      }
+      field ? field.value : nil
+    end
+    
   end
 end

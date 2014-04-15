@@ -42,6 +42,29 @@ describe Highrise::Person do
       subject.tags.should == @tags
     }
   end
+  
+  describe "Custom fields" do
+    
+    before (:each) do
+      @fruit_person = Highrise::Person.new({ :person => { 
+                        :id => 1, 
+                        :first_name => "John", 
+                        :last_name => "Doe",
+                        :subject_datas => [{
+                          :subject_field_label => "Fruit Banana",
+                          :value => "Yellow"
+                        }, {
+                          :subject_field_label => "Fruit Grape",
+                          :value => "Green"
+                        }]
+                      }
+                    })
+    end    
+    
+    it "Can get the value of a custom field via the field method" do
+      @fruit_person.field("Fruit Banana").should== "Yellow"
+    end
+  end
 
   it { subject.label.should == 'Party' }
 end
