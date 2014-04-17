@@ -36,5 +36,12 @@ module Highrise
       field ? field.value : nil
     end
     
+    def set_field_value(field_label, new_value)
+      custom_fields = attributes["subject_datas"] ||= []
+      custom_fields.each { |field|
+        return field.value = new_value if field.subject_field_label== field_label
+      }
+    end
+        
   end
 end
