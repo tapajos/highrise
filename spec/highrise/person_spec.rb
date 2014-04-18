@@ -59,6 +59,8 @@ describe Highrise::Person do
                         }]
                       }
                     })
+      @subject_field_blueberry = Highrise::SubjectField.new ({:id => 1, :label => "Fruit Blueberry"})
+      @subject_field_papaya = Highrise::SubjectField.new ({:id => 2, :label => "Fruit Papaya"})
     end    
     
     it "Can get the value of a custom field via the field method" do
@@ -68,6 +70,13 @@ describe Highrise::Person do
     it "Can set the value of a custom field via the field method" do
       @fruit_person.set_field_value("Fruit Grape", "Red")
       @fruit_person.field("Fruit Grape").should== "Red"
+    end
+    
+    it "Can set the value of a custom field that wasn't there via the field method, but that was defined (happens on new Person)" do
+      Highrise::SubjectField.should_receive(:find).with(:all).and_return([@subject_field_papaya, @subject_field_blueberry])
+      @fruit_person.set_field_value("Fruit Blueberry", "Purple")
+      @fruit_person.field("Fruit Blueberry").should== "Purple"
+      @fruit_person.attributes["subject_datas"][2].subject_field_id.should == 1
     end
     
   end
