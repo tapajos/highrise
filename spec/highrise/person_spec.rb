@@ -67,6 +67,14 @@ describe Highrise::Person do
       @fruit_person.field("Fruit Banana").should== "Yellow"
     end
     
+    it "Can get the value of a custom field using a custom method call" do
+      @fruit_person.fruit_grape.should== "Green"
+    end
+    
+    it "Will raise an exception on an unknown field" do
+      expect {@fruit_person.unknown_fruit}.to raise_exception(NoMethodError)
+    end
+    
     it "Can set the value of a custom field via the field method" do
       @fruit_person.set_field_value("Fruit Grape", "Red")
       @fruit_person.field("Fruit Grape").should== "Red"

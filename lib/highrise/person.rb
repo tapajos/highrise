@@ -52,6 +52,27 @@ module Highrise
         end
       }
     end
+
+    def transform_subject_field_label field_label
+      field_label.downcase.tr(' ', '_')
+    end
+    
+    def convert_method_to_field_label method
+      custom_fields = attributes["subject_datas"] ||= []
+      custom_fields.each { |field|
+        method_name_from_field = transform_subject_field_label(field.subject_field_label)
+        return field if method_name_from_field == method
+      }
+      nil
+    end
+    
+    def method_missing(method_symbol, *args)
+      method_name = method_symbol.to_s      
+      field = convert_method_to_field_label(method_name)
+      return field(field.subject_field_label) if field
+      super
+     end    
+    
         
   end
 end
