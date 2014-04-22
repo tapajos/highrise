@@ -80,11 +80,21 @@ describe Highrise::Person do
       @fruit_person.field("Fruit Grape").should== "Red"
     end
     
+    it "Assignment just returns the arguments (like ActiveResource base does)" do
+      (@fruit_person.unknown_fruit = 10).should== 10
+    end
+    
     it "Can set the value of a custom field that wasn't there via the field method, but that was defined (happens on new Person)" do
       Highrise::SubjectField.should_receive(:find).with(:all).and_return([@subject_field_papaya, @subject_field_blueberry])
       @fruit_person.set_field_value("Fruit Blueberry", "Purple")
       @fruit_person.field("Fruit Blueberry").should== "Purple"
       @fruit_person.attributes["subject_datas"][2].subject_field_id.should == 1
+    end
+    
+    it "Can still set and read the usual way of reading attrivutes" do
+      @fruit_person.first_name = "Jacob"
+      @fruit_person.first_name.should== "Jacob"
+    
     end
     
   end
