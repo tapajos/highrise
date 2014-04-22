@@ -67,12 +67,19 @@ module Highrise
     end
     
     def method_missing(method_symbol, *args)
-      method_name = method_symbol.to_s      
-      field = convert_method_to_field_label(method_name)
-      return field(field.subject_field_label) if field
+      method_name = method_symbol.to_s
+      
+      if method_name[-1,1] == "="
+        attribute_name = method_name[0...-1]
+        field = convert_method_to_field_label(attribute_name)
+        return set_field_value(field.subject_field_label, args[0]) if field
+        
+        return super if attributes[attribute_name]        
+      else
+        field = convert_method_to_field_label(method_name)
+        return field(field.subject_field_label) if field
+      end
       super
      end    
-    
-        
   end
 end
