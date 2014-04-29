@@ -80,6 +80,11 @@ describe Highrise::Person do
       @fruit_person.field("Fruit Grape").should== "Red"
     end
     
+    it "Can set the value of a custom field" do
+      @fruit_person.fruit_grape= "Red"
+      @fruit_person.fruit_grape.should== "Red"
+    end
+    
     it "Assignment just returns the arguments (like ActiveResource base does)" do
       (@fruit_person.unknown_fruit = 10).should== 10
     end
