@@ -80,8 +80,19 @@ describe Highrise::Person do
       @fruit_person.field("Fruit Grape").should== "Red"
     end
     
+    it "Can set the value of a custom field" do
+      @fruit_person.fruit_grape= "Red"
+      @fruit_person.fruit_grape.should== "Red"
+    end
+    
     it "Assignment just returns the arguments (like ActiveResource base does)" do
+      Highrise::SubjectField.should_receive(:find).with(:all).and_return []
       (@fruit_person.unknown_fruit = 10).should== 10
+    end
+    
+    it "Can deal with the find returning nil (which is a bit ugly in the ActiveResource API)" do
+      Highrise::SubjectField.should_receive(:find).with(:all).and_return nil
+      (@fruit_person.unknown_fruit = 10).should== 10      
     end
     
     it "Can set the value of a custom field that wasn't there via the field method, but that was defined (happens on new Person)" do

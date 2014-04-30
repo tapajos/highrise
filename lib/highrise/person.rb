@@ -75,6 +75,13 @@ module Highrise
         return set_field_value(field.subject_field_label, args[0]) if field
         
         return super if attributes[attribute_name]        
+        
+        subject_fields = SubjectField.find(:all)
+        subject_fields.each { |custom_field| 
+          if transform_subject_field_label(custom_field.label) == attribute_name
+            return attributes["subject_datas"] << new_subject_data(custom_field, args[0])
+          end
+          } unless subject_fields.nil?
       else
         field = convert_method_to_field_label(method_name)
         return field(field.subject_field_label) if field
