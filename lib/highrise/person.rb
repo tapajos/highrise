@@ -4,10 +4,6 @@ module Highrise
     include Taggable
     include Searchable
 
-    def tags
-      self.attributes.has_key?("tags") ? self.attributes["tags"] : super
-    end
-
     def company
       Company.find(company_id) if company_id
     end
