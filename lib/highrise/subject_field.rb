@@ -1,7 +1,16 @@
 module Highrise
   class SubjectField < Base
+    
+    def self.use_cache(use_cache = true)
+      @use_cache = use_cache
+    end
+    
     def self.find_every(options)
-      @subject_field_cache ||= super
+      if @use_cache
+        @subject_field_cache ||= super
+      else
+        super
+      end
     end
     
     def self.invalidate_cache
