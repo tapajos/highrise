@@ -1,7 +1,7 @@
 module Highrise
   module Taggable        
     def tags
-      self.get(:tags)
+      self.attributes.has_key?("tags") ? self.attributes["tags"] : self.get(:tags)
     end
 
     def tag!(tag_name)
