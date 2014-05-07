@@ -1,7 +1,7 @@
 module Highrise
   class SubjectField < Base
     
-    def self.use_cache(use_cache = true)
+    def self.use_cache(use_cache = false)
       @use_cache = use_cache
     end
     
