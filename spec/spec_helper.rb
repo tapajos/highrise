@@ -10,3 +10,5 @@ Highrise::Base.site        = ENV['HIGHRISE_SITE']    || 'https://www.example.com
 require 'highrise/pagination_behavior'
 require 'highrise/searchable_behavior'
 require 'highrise/taggable_behavior'
+require 'active_resource/http_mock'
+
