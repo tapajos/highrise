@@ -1,6 +1,11 @@
 module Highrise
   class SubjectField < Base
 
+    def initialize(attributes = {}, persisted = false)
+      super
+      @use_cache = false
+    end
+
     def self.use_cache(use_cache = true)
       @use_cache = use_cache
     end
@@ -18,3 +23,4 @@ module Highrise
     end
   end
 end
+
