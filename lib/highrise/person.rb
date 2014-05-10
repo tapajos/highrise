@@ -26,9 +26,9 @@ module Highrise
     
     def field(field_label)
       custom_fields = attributes["subject_datas"] ||= []
-      field = custom_fields.detect { |field|
+      field = custom_fields.detect do |field|
         field.subject_field_label == field_label
-      }
+      end
       field ? field.value : nil
     end
     
@@ -38,15 +38,15 @@ module Highrise
     
     def set_field_value(field_label, new_value)
       custom_fields = attributes["subject_datas"] ||= []
-      custom_fields.each { |field|
+      custom_fields.each do |field|
         return field.value = new_value if field.subject_field_label== field_label
-      }
+      end
   
-      SubjectField.find(:all).each { |custom_field| 
+      SubjectField.find(:all).each do |custom_field| 
         if custom_field.label == field_label
           return attributes["subject_datas"] << new_subject_data(custom_field, new_value)
         end
-      }
+      end
     end
 
     def transform_subject_field_label field_label
@@ -55,10 +55,10 @@ module Highrise
     
     def convert_method_to_field_label method
       custom_fields = attributes["subject_datas"] ||= []
-      custom_fields.each { |field|
+      custom_fields.each do |field|
         method_name_from_field = transform_subject_field_label(field.subject_field_label)
         return field if method_name_from_field == method
-      }
+      end
       nil
     end
     
@@ -73,16 +73,18 @@ module Highrise
         return super if attributes[attribute_name]        
         
         subject_fields = SubjectField.find(:all)
-        subject_fields.each { |custom_field| 
-          if transform_subject_field_label(custom_field.label) == attribute_name
-            return attributes["subject_datas"] << new_subject_data(custom_field, args[0])
+        unless subject_fields.nil?
+          subject_fields.each do |custom_field| 
+            if transform_subject_field_label(custom_field.label) == attribute_name
+              return attributes["subject_datas"] << new_subject_data(custom_field, args[0])
+            end
           end
-          } unless subject_fields.nil?
+        end
       else
         field = convert_method_to_field_label(method_name)
         return field(field.subject_field_label) if field
       end
       super
-     end    
+    end    
   end
 end
