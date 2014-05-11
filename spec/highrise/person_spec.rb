@@ -29,6 +29,24 @@ describe Highrise::Person do
     subject.name.should == "Marcos Tapajós"
   end
 
+  describe "#email_addresses" do
+    it "returns an empty array when there are none set" do
+      subject.email_addresses.should == []
+    end
+
+    it "returns all email_addresses as string in an array" do
+      subject = Highrise::Person.new(:id => 1,
+                                     :contact_data => {
+        :email_addresses => [{
+          :email_address => {
+            :address => "important@person.com"
+          }
+        }]
+      })
+      subject.email_addresses.should == ["important@person.com"]
+    end
+  end
+
   describe "#tags" do
     before(:each) do
       (@tags = []).tap do
@@ -42,13 +60,13 @@ describe Highrise::Person do
       subject.tags.should == @tags
     }
   end
-  
+
   describe "Custom fields" do
-    
+
     before (:each) do
-      @fruit_person = Highrise::Person.new({ :person => { 
-                        :id => 1, 
-                        :first_name => "John", 
+      @fruit_person = Highrise::Person.new({ :person => {
+                        :id => 1,
+                        :first_name => "John",
                         :last_name => "Doe",
                         :subject_datas => [{
                           :subject_field_label => "Fruit Banana",
@@ -61,53 +79,53 @@ describe Highrise::Person do
                     })
       @subject_field_blueberry = Highrise::SubjectField.new ({:id => 1, :label => "Fruit Blueberry"})
       @subject_field_papaya = Highrise::SubjectField.new ({:id => 2, :label => "Fruit Papaya"})
-    end    
-    
+    end
+
     it "Can get the value of a custom field via the field method" do
       @fruit_person.field("Fruit Banana").should== "Yellow"
     end
-    
+
     it "Can get the value of a custom field using a custom method call" do
       @fruit_person.fruit_grape.should== "Green"
     end
-    
+
     it "Will raise an exception on an unknown field" do
       expect {@fruit_person.unknown_fruit}.to raise_exception(NoMethodError)
     end
-    
+
     it "Can set the value of a custom field via the field method" do
       @fruit_person.set_field_value("Fruit Grape", "Red")
       @fruit_person.field("Fruit Grape").should== "Red"
     end
-    
+
     it "Can set the value of a custom field" do
       @fruit_person.fruit_grape= "Red"
       @fruit_person.fruit_grape.should== "Red"
     end
-    
+
     it "Assignment just returns the arguments (like ActiveResource base does)" do
       Highrise::SubjectField.should_receive(:find).with(:all).and_return []
       (@fruit_person.unknown_fruit = 10).should== 10
     end
-    
+
     it "Can deal with the find returning nil (which is a bit ugly in the ActiveResource API)" do
       Highrise::SubjectField.should_receive(:find).with(:all).and_return nil
-      (@fruit_person.unknown_fruit = 10).should== 10      
+      (@fruit_person.unknown_fruit = 10).should== 10
     end
-    
+
     it "Can set the value of a custom field that wasn't there via the field method, but that was defined (happens on new Person)" do
       Highrise::SubjectField.should_receive(:find).with(:all).and_return([@subject_field_papaya, @subject_field_blueberry])
       @fruit_person.set_field_value("Fruit Blueberry", "Purple")
       @fruit_person.field("Fruit Blueberry").should== "Purple"
       @fruit_person.attributes["subject_datas"][2].subject_field_id.should == 1
     end
-    
+
     it "Can still set and read the usual way of reading attrivutes" do
       @fruit_person.first_name = "Jacob"
       @fruit_person.first_name.should== "Jacob"
-    
+
     end
-    
+
   end
 
   it { subject.label.should == 'Party' }
