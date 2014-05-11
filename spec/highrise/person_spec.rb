@@ -29,6 +29,24 @@ describe Highrise::Person do
     subject.name.should == "Marcos Tapajós"
   end
 
+  describe "#email_addresses" do
+    it "returns an empty array when there are none set" do
+      subject.email_addresses.should == []
+    end
+
+    it "returns all email_addresses as string in an array" do
+      subject = Highrise::Person.new(:id => 1,
+                                     :contact_data => {
+        :email_addresses => [{
+          :email_address => {
+            :address => "important@person.com"
+          }
+        }]
+      })
+      subject.email_addresses.should == ["important@person.com"]
+    end
+  end
+
   describe "#tags" do
     before(:each) do
       (@tags = []).tap do

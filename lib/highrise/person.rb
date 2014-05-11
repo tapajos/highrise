@@ -20,6 +20,12 @@ module Highrise
       contact_data.web_addresses.first
     end
 
+    def email_addresses
+      contact_data.email_addresses.collect { |address|
+        address.address
+      } rescue []
+    end
+
     def label
       'Party'
     end
