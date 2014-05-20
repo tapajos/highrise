@@ -24,6 +24,10 @@ module Highrise
       contact_data.email_addresses.collect { |address| address.address } rescue []
     end
 
+    def phone_numbers
+      contact_data.phone_numbers.collect { |phone_number| phone_number.number } rescue []
+    end
+
     def label
       'Party'
     end

@@ -47,6 +47,24 @@ describe Highrise::Person do
     end
   end
 
+  describe "#phone_numbers" do
+    it "returns an empty array when there is none set" do
+      subject.phone_numbers.should== []
+    end
+
+    it "returns all phone numbers as a string aray" do
+      subject = Highrise::Person.new(:id => 1,
+                                     :contact_data => {
+        :phone_numbers => [{
+          :phone_number => {
+            :number => "123456789"
+          }
+        }]
+      })
+      subject.phone_numbers.should== [ "123456789" ]
+    end
+  end
+
   describe "#tags" do
     before(:each) do
       (@tags = []).tap do
