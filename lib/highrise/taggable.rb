@@ -1,12 +1,17 @@
 module Highrise
-  module Taggable        
+  module Taggable
+
     def tags
-      self.attributes.has_key?("tags") ? self.attributes["tags"] : self.get(:tags)
+      unless self.attributes.has_key?("tags")
+        person_or_company = self.class.find(id)
+        self.attributes["tags"] = person_or_company.attributes.has_key?("tags") ? person_or_company.tags : []
+      end
+      self.attributes["tags"]
     end
 
     def tag!(tag_name)
       self.post(:tags, :name => tag_name) unless tag_name.blank?
-    end    
+    end
 
     def untag!(tag_name)
       to_delete = self.tags.find{|tag| tag.attributes['name'] == tag_name} unless tag_name.blank?
