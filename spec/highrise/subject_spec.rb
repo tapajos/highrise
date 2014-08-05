@@ -29,6 +29,28 @@ describe Highrise::Subject do
     Highrise::Task.should_receive(:find).with(:all, {:from=>"/subjects/1/tasks.xml"}).and_return("tasks")
     subject.upcoming_tasks.should == "tasks"
   end
+
+  context 'finding with since param' do
+    before(:each) do
+      @utc_time_str = "20090114174311"
+    end
+
+    it "#notes" do
+      Highrise::Note.should_receive(:find_all_across_pages).with({:from=>"/subjects/1/notes.xml", :params=>{:since=>@utc_time_str}}).and_return("notes")
+      subject.notes(:params=>{:since=>@utc_time_str}).should == "notes"
+    end
+
+    it "#emails" do
+      Highrise::Email.should_receive(:find_all_across_pages).with({:from=>"/subjects/1/emails.xml", :params=>{:since=>@utc_time_str}}).and_return("emails")
+      subject.emails(:params=>{:since=>@utc_time_str}).should == "emails"
+    end
+
+
+    it "#tasks" do
+      Highrise::Task.should_receive(:find).with(:all, {:from=>"/subjects/1/tasks.xml", :params=>{:since=>@utc_time_str}}).and_return("tasks")
+      subject.upcoming_tasks(:params=>{:since=>@utc_time_str}).should == "tasks"
+    end
+  end
   
   it { subject.label.should == "Subject" }
 end

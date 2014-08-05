@@ -1,7 +1,8 @@
 module Highrise
   class Subject < Base
-    def notes
-      Note.find_all_across_pages(:from => "/#{self.class.collection_name}/#{id}/notes.xml")
+    def notes(options={})
+      options.merge!(:from => "/#{self.class.collection_name}/#{id}/notes.xml")
+      Note.find_all_across_pages(options)
     end
 
     def add_note(attrs={})
@@ -16,12 +17,14 @@ module Highrise
       Task.create attrs
     end
 
-    def emails
-      Email.find_all_across_pages(:from => "/#{self.class.collection_name}/#{id}/emails.xml")
+    def emails(options={})
+      options.merge!(:from => "/#{self.class.collection_name}/#{id}/emails.xml")
+      Email.find_all_across_pages(options)
     end
 
-    def upcoming_tasks
-      Task.find(:all, :from => "/#{self.class.collection_name}/#{id}/tasks.xml")
+    def upcoming_tasks(options={})
+      options.merge!(:from => "/#{self.class.collection_name}/#{id}/tasks.xml")
+      Task.find(:all, options)
     end
     
     def label
