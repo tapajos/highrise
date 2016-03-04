@@ -66,6 +66,32 @@ describe Highrise::Person do
   end
 
   describe "#tags" do
+
+    let(:person_tags) { [
+        {'id' => "414578", 'name' => "cliente"},
+        {'id' => "414580", 'name' => "ged"},
+        {'id' => "414579", 'name' => "iepc"} ]
+    }
+
+    let(:person_john_doe) { { :id => 1, :first_name => "John", :last_name => "Doe" } }
+    let(:person_john_doe_request){ ActiveResource::Request.new(:get, '/people/1.xml', nil, {"Authorization"=>"Bearer OAUTH_TOKEN", "Accept"=>"application/xml"}) }
+    let(:person_john_doe_request_pair){ {person_john_doe_request => ActiveResource::Response.new(person_john_doe.to_xml, 200, {})} }
+
+    it "should return the tags as a Highrise::Tag" do
+      person_john_doe[:tags] = person_tags
+      ActiveResource::HttpMock.respond_to(person_john_doe_request_pair)
+      tags = person_tags.collect {|tag| Highrise::Tag.new(tag)}
+      subject.tags.should == tags
+    end
+
+    it "should return an empty collection when there are no tags" do
+      ActiveResource::HttpMock.respond_to(person_john_doe_request_pair)
+      subject.tags.should == []
+    end
+  end
+
+
+  describe "#tags" do
     before(:each) do
       (@tags = []).tap do
         @tags << {'id' => "414578", 'name' => "cliente"}
