@@ -1,4 +1,4 @@
-# Highrise (master) [![Build Status](https://secure.travis-ci.org/tapajos/highrise.png)](http://travis-ci.org/tapajos/highrise) [![Code Climate](https://codeclimate.com/github/tapajos/highrise.png)](https://codeclimate.com/github/tapajos/highrise)
+# Highrise (master) [![Build Status](https://snap-ci.com/tapajos/highrise/branch/master/build_image)](https://snap-ci.com/tapajos/highrise/branch/master) [![Code Climate](https://codeclimate.com/github/tapajos/highrise.png)](https://codeclimate.com/github/tapajos/highrise)
 
 ## What is it?
 
@@ -24,7 +24,7 @@ All these classes are inherited from ActiveResouce::Base. Refer to the [ActiveRe
 ### Configure your key
 ```ruby
     require 'highrise'
-    
+
     Highrise::Base.site = 'https://your_site.highrisehq.com'
     Highrise::Base.user = 'api-auth-token'
     Highrise::Base.format = :xml
@@ -36,9 +36,9 @@ file is recommended. See config_initializers_highrise.rb in the examples/ direct
 ## Usage
 ```ruby
     @tags = Highrise::Tag.find(:all)
-    
+
     @people = Highrise::Person.find_all_across_pages(:params => {:tag_id => 12345})
-    
+
     @person.tag!("VIP")
 ```
 ## License
@@ -49,8 +49,8 @@ This code is free to be used under the terms of the [MIT license][mit].
 
 Comments are welcome. Send your feedback through the [issue tracker on GitHub][i]
 
-If you have fixes: Submit via pull requests. Do not include version changes to the 
-version file. 
+If you have fixes: Submit via pull requests. Do not include version changes to the
+version file.
 
 ## Authors
 
