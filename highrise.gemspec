@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.add_dependency "activeresource", ">= 3.2.13"
+  s.add_dependency "activeresource", ">= 5.0.0"
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.summary       = "Ruby wrapper around Highrise API"
   s.description   = <<-EOT
     Based on the original API module from DHH, http://developer.37signals.com/highrise/, this
-    gem is a cleaned up, tested version of the same. 
+    gem is a cleaned up, tested version of the same.
 
     Configure by adding the following:
 
